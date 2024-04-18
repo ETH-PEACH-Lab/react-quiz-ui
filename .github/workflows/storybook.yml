@@ -2,10 +2,12 @@ name: Build and Deploy
 on: 
   push:
     paths: ["stories/**", "src/components/**"] # Trigger the action only when files change in the folders defined here
+    
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
