@@ -1,0 +1,75 @@
+{
+  "name": "react-quiz-ui",
+  "version": "1.0.0",
+  "description": "UI library for quizzes",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy-storybook": "gh-pages -d storybook-static"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETH-PEACH-Lab/react-quiz-ui.git"
+  },
+  "keywords": [
+    "react",
+    "quiz-ui"
+  ],
+  "author": "Pascal Linder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ETH-PEACH-Lab/react-quiz-ui/issues"
+  },
+  "homepage": "https://github.com/ETH-PEACH-Lab/react-quiz-ui",
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "@chromatic-com/storybook": "^1.3.2",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/addon-onboarding": "^8.0.8",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/react": "^8.0.8",
+    "@storybook/react-vite": "^8.0.8",
+    "@storybook/react-webpack5": "^8.0.8",
+    "@storybook/test": "^8.0.8",
+    "@tsconfig/recommended": "^1.0.6",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
+    "@types/styled-components": "^5.1.34",
+    "daisyui": "^4.10.2",
+    "eslint": "^9.0.0",
+    "gh-pages": "^6.1.1",
+    "postcss-loader": "^8.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^2.79.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "storybook": "^8.0.8",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  }
+}
