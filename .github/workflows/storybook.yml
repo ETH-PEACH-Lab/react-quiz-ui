@@ -16,12 +16,13 @@ jobs:
           npm install
           npm run build-storybook
       - name: Deploy to GitHub Pages
-          uses: crazy-max/ghaction-github-pages@v3
-          with:
-            target_branch: gh-pages
-            build_dir: docs-build
-            commit_message: 'chore(deploy): Storybook'
-            keep_history: false
-            jekyll: false
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: docs-build
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: false
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
