@@ -34,6 +34,8 @@ const Template = {
             src: args.descriptionText,
             type: 'markdown'
         }
+        delete (args as Partial<MultipleChoiceComponentPropsAndCustomArgs>).descriptionText;
+        delete (args as Partial<MultipleChoiceComponentPropsAndCustomArgs>).itemsCount;
         return <MultipleChoiceComponent {...args} items={items} description={description}/>
     },
     argTypes:{
