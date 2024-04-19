@@ -1,6 +1,7 @@
 import React from 'react'
 import {Meta, StoryObj } from "@storybook/react";
 import MultipleChoiceComponent from "../../../components/exercise-object/multiple-choice/MultipleChoiceComponent";
+import { fn } from '@storybook/test';
 
 type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceComponent> & { itemsCount: number, descriptionText: string };
 
@@ -12,6 +13,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 const Template = {
+    args:{
+        id: 'test-mc',
+        itemsCount: 3,
+        descriptionText: '## Multiple Choice',
+        correctAnswers: ['mc-item-0'],
+        onSelectedItemsChange: fn(),
+        showResult: false,
+        random: false,
+        itemsShown: undefined
+    },
     render: (args) => {
         const items = Array.from(Array(args.itemsCount).keys()).map(n=>{return {
             id: 'mc-item-'+n,
@@ -23,7 +34,7 @@ const Template = {
             src: args.descriptionText,
             type: 'markdown'
         }
-        return <MultipleChoiceComponent id={args.id} multi={args.multi} items={items} description={description}/>
+        return <MultipleChoiceComponent {...args} items={items} description={description}/>
     },
     argTypes:{
         itemsCount:{
@@ -43,20 +54,18 @@ const Template = {
 export const Primary :Story = {
     name:'Radio Button MC',
     args:{
-        id: 'test-mc',
         multi: false,
-        itemsCount: 3,
-        descriptionText: '## Multiple Choice'
+        ...Template.args
     },
-    ...Template
+    argTypes: Template.argTypes,
+    render: Template.render
 }
 export const Secondary :Story = {
     name:'Checkbox Button MC',
     args:{
-        id: 'test-mc',
         multi: true,
-        itemsCount: 3,
-        descriptionText: '## Multiple Choice'
+        ...Template.args
     },
-    ...Template
+    argTypes: Template.argTypes,
+    render: Template.render
 }

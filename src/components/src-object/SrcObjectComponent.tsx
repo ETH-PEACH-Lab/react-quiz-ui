@@ -1,18 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
 import { ISrcObject } from "./types/ISrcObject"
-import { MarkdownComponent } from "./markdown"
+import { ISrcObjectOptions } from "./types/ISrcObjectOptions"
+import { getComponent } from "./registerComponent"
+import { getDefaultComponentOptions } from "./registerComponentOptions"
 
 type SrcObjectComponentProps = {
-    object: ISrcObject
-}
-const componentMap: {[key:string]:React.ComponentType<any>}={
-    markdown: MarkdownComponent
+    object: ISrcObject,
+    options?: ISrcObjectOptions
 }
 export const SrcObjectComponent = (props: SrcObjectComponentProps) => {
-    const ComponentToRender = componentMap[props.object.type];
-    if (!ComponentToRender) {
-        console.warn(`Unknown object.type: ${props.object.type}`);
-        return null;
-      }
-    return <ComponentToRender {...props.object} />
+    const Component = getComponent(props.object.type);
+    const options = props.options ?? getDefaultComponentOptions(props.object.type);
+    if(Component){
+        return <Component {...props.object} options={options}></Component>
+    }
+    return <></>
 }

@@ -1,11 +1,11 @@
 import {Meta, StoryObj } from "@storybook/react";
-import { MarkdownComponent } from "../../../components";
+import { MarkdownComponent } from "../../components";
 
 const meta: Meta<typeof MarkdownComponent> = {
     component: MarkdownComponent,
 };
 export default meta;
-type Story = StoryObj<typeof MarkdownComponent>;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     name:'Simple h2',
@@ -16,6 +16,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
     name:'Simple multiline',
     args:{
-        src: 'Hello  ' + '\r\nWorld  '
+        src: 'Hello' + '\nWorld\n' + "..."
     }
 };
