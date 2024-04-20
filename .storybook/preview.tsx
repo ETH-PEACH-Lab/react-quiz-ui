@@ -3,6 +3,7 @@ import "../src/tailwind.css";
 
 const preview: Preview = {
   parameters: {
+    deepControls: { enabled: true },
     controls: {
       matchers: {
         color: /(background|color)$/i,

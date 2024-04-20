@@ -1,20 +1,19 @@
 import { Editor } from '@monaco-editor/react';
 import { editor } from 'monaco-editor';
 import React from 'react'
-import { registerComponent } from '../registerComponent';
 import { ICodeOptions } from './types';
-import { registerDefaultComponentOption } from '../registerComponentOptions';
 
 type CodeComponentProps = {
     src: string,
     language: string,
+    onCodeChange?: (value:string) => void,
     options?: ICodeOptions
   }
 const CodeComponent = (props: CodeComponentProps) => {
   console.log(props);
     const onCodeChange = (value: string | undefined) => {
-        if (value && props.options?.onCodeChange) {
-          props.options?.onCodeChange(value);
+        if (props.onCodeChange) {
+          props.onCodeChange(value ?? '');
         }
       };
       const onEditorMount = (editor: editor.IStandaloneCodeEditor) => {
@@ -51,11 +50,8 @@ const CodeComponent = (props: CodeComponentProps) => {
 
 export default CodeComponent
 
-registerComponent('code',CodeComponent)
-
-export const defaultCodeOptions:ICodeOptions ={
-  options: {
-    quickSuggestions: {
+export const oneLinerCodeOptions:editor.IStandaloneDiffEditorConstructionOptions ={
+  quickSuggestions: {
       other: 'inline',
       comments: true,
       strings: true
@@ -66,8 +62,4 @@ export const defaultCodeOptions:ICodeOptions ={
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
     overviewRulerLanes: 0,
-  },
-  theme:"light",
-  fullHeight:false
-} 
-registerDefaultComponentOption('code',defaultCodeOptions)
+}

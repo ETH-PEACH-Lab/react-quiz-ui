@@ -2,6 +2,7 @@ import React from 'react'
 import {Meta, StoryObj } from "@storybook/react";
 import MultipleChoiceItemComponent from '../../../../components/exercise-object/multiple-choice/item/MultipleChoiceItemComponent';
 import { fn } from '@storybook/test';
+import { IMarkdown } from '../../../../components';
 
 type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceItemComponent> & { descriptionText: string };
 
@@ -14,12 +15,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const Template = {
     render: (args) => {
-        const description = {
+        const description: IMarkdown = {
             id: 'mc-item-id',
             src: args.descriptionText,
             type: 'markdown'
         }
-        return <MultipleChoiceItemComponent onChange={args.onChange} parentId={args.parentId} multi={args.multi} item={description}/>
+        return <MultipleChoiceItemComponent {...args} item={description}/>
     },
     argTypes:{
         parentId: {
@@ -30,10 +31,10 @@ const Template = {
         },
         item: {
             control: false
-        }
+        },
     }
 } satisfies Story
-export const Primary :Story = {
+export const First :Story = {
     name:'Radio Button',
     args:{
         multi: false,
@@ -43,13 +44,24 @@ export const Primary :Story = {
     },
     ...Template
 }
-export const Secondary :Story = {
+export const Second :Story = {
     name:'Checkbox Button',
     args:{
         multi: true,
         descriptionText: 'Multiple Choice Item',
         parentId: 'mcq-id',
         onChange: fn()
+    },
+    ...Template
+}
+export const Thrid :Story = {
+    name:'Checked checkbox Button',
+    args:{
+        multi: true,
+        descriptionText: 'Multiple Choice Item',
+        parentId: 'mcq-id',
+        onChange: fn(),
+        defaultChecked: true
     },
     ...Template
 }

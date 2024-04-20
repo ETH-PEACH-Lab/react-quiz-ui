@@ -7,6 +7,7 @@ export default {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "storybook-addon-deep-controls",
     {
       name: '@storybook/addon-styling-webpack',
       options: {

@@ -1,5 +1,5 @@
-import { ISrcObject } from "../../../src-object";
+import { IMarkdown, ISrcObject } from "../../../src-object";
 
-export default interface IMultipleChoiceItem extends ISrcObject{
+export default interface IMultipleChoiceItem extends IMarkdown{
 
 }

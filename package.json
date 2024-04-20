@@ -57,6 +57,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^8.0.8",
+    "storybook-addon-deep-controls": "^0.6.2",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
