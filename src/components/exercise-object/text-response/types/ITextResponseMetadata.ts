@@ -1,5 +1,3 @@
-import type IMetadata from '../../types/IMetadata'
-
-export interface ITextResponseMetadata extends IMetadata {
+export interface ITextResponseMetadata {
   vertical?: boolean
 }

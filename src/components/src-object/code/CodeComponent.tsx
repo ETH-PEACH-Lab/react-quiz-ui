@@ -75,5 +75,5 @@ export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneDiffEditorCo
   scrollBeyondLastLine: false,
   overviewRulerLanes: 0,
   readOnly: true,
-  lineNumbers: 'off'
+  lineNumbers: (_: number) => ' '
 }

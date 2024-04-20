@@ -149,12 +149,12 @@ export const Fifth: Story = {
       metadata: {
         ...Template.args.exerciseObject.metadata,
         multi: true,
-        showEvaluation: true,
-        initialAnswer: {
-          exerciseId: Template.args.exerciseObject.id,
-          answer: ['mc-item-1']
-        }
+        showEvaluation: true
       }
+    },
+    initialAnswer: {
+      exerciseId: Template.args.exerciseObject.id,
+      answer: ['mc-item-1']
     }
   },
   argTypes: Template.argTypes,

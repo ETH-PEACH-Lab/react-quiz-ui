@@ -26,6 +26,14 @@ const Template = {
       },
       type: 'text-response'
     },
+    initialAnswer: {
+      exerciseId: 'text-response-id',
+      answer: {
+        id: 'text-response-answer-id',
+        src: '',
+        type: 'markdown'
+      }
+    },
     onAnswerChanges: fn()
   },
   render: (args) => {
@@ -43,16 +51,15 @@ export const Secondary: Story = {
   name: 'With inital value',
   args: {
     ...Template.args,
-    exerciseObject: {
-      ...Template.args.exerciseObject,
-      metadata: {
-        ...Template.args.exerciseObject.metadata,
-        initialAnswer: {
-          exerciseId: Template.args.exerciseObject.id,
-          answer: 'I love currying'
-        }
+    initialAnswer: {
+      exerciseId: Template.args.exerciseObject.id,
+      answer: {
+        id: 'text-response-answer-id',
+        src: 'I love currying',
+        type: 'markdown'
       }
     }
   },
+
   render: Template.render
 }

@@ -8,12 +8,16 @@ import type ITextResponseAnswer from './types/ITextResponseAnswer'
 interface ITextResponseComponentProps extends ExerciseProps {
   exerciseObject: ITextResponseExercise
   onAnswerChange: (answer: ITextResponseAnswer) => void
+  initialAnswer: ITextResponseAnswer
 }
 const TextResponseComponent: React.FC<ITextResponseComponentProps> = (props: ITextResponseComponentProps) => {
-  const [answer, setAnswer] = useState(props.exerciseObject.metadata?.initialAnswer?.answer ?? '')
+  const [answer, setAnswer] = useState(props.initialAnswer.answer.src)
   useEffect(() => {
-    props.onAnswerChanges({ exerciseId: props.exerciseObject.id, answer })
-  }, [answer, props.onAnswerChanges])
+    props.onAnswerChange({
+      exerciseId: props.exerciseObject.id,
+      answer: { ...props.initialAnswer?.answer, src: answer }
+    })
+  }, [answer])
 
   return <>
         <MarkdownComponent src={props.exerciseObject.description.src}></MarkdownComponent>
@@ -24,5 +28,4 @@ const TextResponseComponent: React.FC<ITextResponseComponentProps> = (props: ITe
         </div>
     </>
 }
-
 export default TextResponseComponent
