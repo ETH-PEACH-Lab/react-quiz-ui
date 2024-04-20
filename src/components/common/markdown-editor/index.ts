@@ -1,1 +1,1 @@
-export * from './MarkdownEditorComponent';
+export * from './MarkdownEditorComponent'

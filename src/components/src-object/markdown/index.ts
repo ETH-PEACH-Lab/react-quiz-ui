@@ -1,2 +1,2 @@
-export * from './IMarkdown';
-export * from './MarkdownComponent';
+export * from './IMarkdown'
+export * from './MarkdownComponent'

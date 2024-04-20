@@ -1,3 +1,3 @@
-export interface IObject{
-    id:string;
+export interface IObject {
+  id: string
 }

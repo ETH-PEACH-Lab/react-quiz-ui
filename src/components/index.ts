@@ -1,2 +1,2 @@
-export * from './exercise-object';
-export * from './src-object';
+export * from './exercise-object'
+export * from './src-object'

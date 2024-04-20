@@ -1,5 +1,5 @@
-import IExerciseAnswer from "../../types/IExerciseAnswer";
+import type IExerciseAnswer from '../../types/IExerciseAnswer'
 
-export default interface ITextResponseAnswer extends IExerciseAnswer{
-    answer: string
+export default interface ITextResponseAnswer extends IExerciseAnswer {
+  answer: string
 }

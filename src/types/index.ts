@@ -1,2 +1,2 @@
-export { IObject } from "./IObject";
-export { ITypedObject } from "./ITypedObject";
+export type { IObject } from './IObject'
+export type { ITypedObject } from './ITypedObject'

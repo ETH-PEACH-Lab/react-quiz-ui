@@ -12,7 +12,13 @@ const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({ baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended })
 
 export default [
-  { languageOptions: { globals: globals.browser },  files: ["src/**/*.{ts,tsx}", "stories/**/*.{ts,tsx}"] },
   ...compat.extends('standard-with-typescript'),
+  { 
+    languageOptions: { globals: globals.browser },  
+    files: ["src/**/*.{ts,tsx}"],
+    rules:{
+      "@typescript-eslint/strict-boolean-expressions": "off"
+    } 
+  },
   pluginReactConfig,
 ]

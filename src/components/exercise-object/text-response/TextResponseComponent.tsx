@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { MarkdownComponent } from '../../src-object'
-import { ExerciseProps } from '../types/ExerciseProps'
+import { type ExerciseProps } from '../types/ExerciseProps'
 import MarkdownEditorComponent from '../../common/markdown-editor/MarkdownEditorComponent'
-import ITextResponseExercise from './types/ITextResponseExercise'
-import ITextResponseAnswer from './types/ITextResponseAnswer'
+import type ITextResponseExercise from './types/ITextResponseExercise'
+import type ITextResponseAnswer from './types/ITextResponseAnswer'
 
 interface ITextResponseComponentProps extends ExerciseProps {
-    exerciseObject: ITextResponseExercise,
-    onAnswerChange: (answer: ITextResponseAnswer) => void
+  exerciseObject: ITextResponseExercise
+  onAnswerChange: (answer: ITextResponseAnswer) => void
 }
-const TextResponseComponent = (props: ITextResponseComponentProps) => {
-    const [answer, setAnswer] = useState(props.exerciseObject.metadata?.initialAnswer?.answer ?? '');
-    useEffect(() => {
-        props.onAnswerChanges({exerciseId: props.exerciseObject.id, answer:answer});
-    }, [answer, props.onAnswerChanges]);
+const TextResponseComponent: React.FC<ITextResponseComponentProps> = (props: ITextResponseComponentProps) => {
+  const [answer, setAnswer] = useState(props.exerciseObject.metadata?.initialAnswer?.answer ?? '')
+  useEffect(() => {
+    props.onAnswerChanges({ exerciseId: props.exerciseObject.id, answer })
+  }, [answer, props.onAnswerChanges])
 
-
-    return <>
+  return <>
         <MarkdownComponent src={props.exerciseObject.description.src}></MarkdownComponent>
         <div className='mt-4'>
-            <MarkdownEditorComponent onChange={value => setAnswer(value)} src={answer} config={
-                {alignVertical:props.exerciseObject.metadata?.vertical}
+            <MarkdownEditorComponent onChange={value => { setAnswer(value) }} src={answer} config={
+                { alignVertical: props.exerciseObject.metadata?.vertical }
             }/>
         </div>
     </>

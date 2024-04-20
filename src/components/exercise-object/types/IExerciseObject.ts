@@ -1,8 +1,8 @@
-import { ITypedObject } from "../../../types";
-import { IMarkdown } from "../../src-object";
-import IMetadata from "./IMetadata";
+import { type ITypedObject } from '../../../types'
+import { type IMarkdown } from '../../src-object'
+import type IMetadata from './IMetadata'
 
-export default interface IExerciseObject extends ITypedObject{
-    description: IMarkdown
-    metadata?: IMetadata
+export default interface IExerciseObject extends ITypedObject {
+  description: IMarkdown
+  metadata?: IMetadata
 }

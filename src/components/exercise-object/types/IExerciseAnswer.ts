@@ -1,4 +1,4 @@
-export default interface IExerciseAnswer{
-    exerciseId: string;
-    answer: any
+export default interface IExerciseAnswer {
+  exerciseId: string
+  answer: any
 }

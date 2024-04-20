@@ -1,7 +1,7 @@
-import { editor } from "monaco-editor";
+import { type editor } from 'monaco-editor'
 
-export interface ICodeConfig{
-    options?: editor.IStandaloneDiffEditorConstructionOptions,
-    fullHeight?: boolean,
-    theme?: "vs-dark" | "light"
+export interface ICodeConfig {
+  options?: editor.IStandaloneDiffEditorConstructionOptions
+  fullHeight?: boolean
+  theme?: 'vs-dark' | 'light'
 }

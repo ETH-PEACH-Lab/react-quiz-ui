@@ -1,7 +1,7 @@
-import IExerciseObject from "./IExerciseObject";
-import IExerciseAnswer from "./IExerciseAnswer";
+import type IExerciseObject from './IExerciseObject'
+import type IExerciseAnswer from './IExerciseAnswer'
 
-export type ExerciseProps = {
-    exerciseObject: IExerciseObject,
-    onAnswerChanges: (answer: IExerciseAnswer) => void;
+export interface ExerciseProps {
+  exerciseObject: IExerciseObject
+  onAnswerChanges: (answer: IExerciseAnswer) => void
 }
