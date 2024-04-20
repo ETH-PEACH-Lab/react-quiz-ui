@@ -1,19 +1,27 @@
 import React from 'react'
-import { ICodeOptions, MarkdownComponent } from '../../src-object'
-import CodeComponent, { oneLinerCodeOptions } from '../../src-object/code/CodeComponent'
+import { MarkdownComponent, adjustableHeightCodeOptions } from '../../src-object'
+import { IMarkdownEditorConfig } from './types'
+import CodeComponent from '../../src-object/code/CodeComponent'
+
 type MarkdownEditorComponentProps = {
-    value: string,
-    alignVertical?: boolean,
+    src: string,
+    config?: IMarkdownEditorConfig
     onChange: (value:string) => void
-    codeOptions?: ICodeOptions
 }
 const MarkdownEditorComponent = (props: MarkdownEditorComponentProps) => {
-    const Code = <CodeComponent language='markdown' src={props.value} options={props.codeOptions ?? {options:oneLinerCodeOptions}} onCodeChange={props.onChange}></CodeComponent>;
-    const Markdown = <MarkdownComponent src={props.value}></MarkdownComponent>
-    return <div className={"grid gap-4 " + (props.alignVertical ? "": "grid-cols-2")}>
-       {(props.alignVertical ? Markdown : Code )}
-       {(props.alignVertical ? Code : Markdown )}
+    const Code = <CodeComponent language='markdown' src={props.src} config={{options:props.config?.codeConfig}} onCodeChange={props.onChange}></CodeComponent>;
+    const Markdown = <MarkdownComponent src={props.src}></MarkdownComponent>
+    return <div className={"grid gap-4 " + (props.config?.alignVertical ? "": "grid-cols-2")}>
+       {(props.config?.alignVertical ? Markdown : Code )}
+       {(props.config?.alignVertical ? Code : Markdown )}
     </div>
 }
-
+MarkdownEditorComponent.defaultProps = {
+    config: {
+        alignVertical: false,
+        codeConfig: {
+            options: adjustableHeightCodeOptions
+        }
+    }
+}
 export default MarkdownEditorComponent

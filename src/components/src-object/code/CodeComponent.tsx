@@ -1,13 +1,13 @@
 import { Editor } from '@monaco-editor/react';
 import { editor } from 'monaco-editor';
 import React from 'react'
-import { ICodeOptions } from './types';
+import { ICodeConfig } from './types';
 
 type CodeComponentProps = {
     src: string,
     language: string,
     onCodeChange?: (value:string) => void,
-    options?: ICodeOptions
+    config?: ICodeConfig
   }
 const CodeComponent = (props: CodeComponentProps) => {
   console.log(props);
@@ -17,7 +17,7 @@ const CodeComponent = (props: CodeComponentProps) => {
         }
       };
       const onEditorMount = (editor: editor.IStandaloneCodeEditor) => {
-        if(!props.options?.fullHeight){
+        if(!props.config?.fullHeight){
             editor.onDidContentSizeChange(() => updateEditorHeight(editor));
             updateEditorHeight(editor);
         }
@@ -37,9 +37,9 @@ const CodeComponent = (props: CodeComponentProps) => {
         editor.layout()
       };
       return  <Editor
-          height={props.options?.fullHeight ? '100%' : 'auto'}
-          options={props.options?.options}
-          theme={props.options?.theme}
+          height={props.config?.fullHeight ? '100%' : 'auto'}
+          options={props.config?.options}
+          theme={props.config?.theme}
           value={props.src}
           language={props.language}
           onChange={onCodeChange}
@@ -50,8 +50,8 @@ const CodeComponent = (props: CodeComponentProps) => {
 
 export default CodeComponent
 
-export const oneLinerCodeOptions:editor.IStandaloneDiffEditorConstructionOptions ={
-  quickSuggestions: {
+export const adjustableHeightCodeOptions:editor.IStandaloneDiffEditorConstructionOptions ={
+    quickSuggestions: {
       other: 'inline',
       comments: true,
       strings: true
@@ -62,4 +62,19 @@ export const oneLinerCodeOptions:editor.IStandaloneDiffEditorConstructionOptions
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
     overviewRulerLanes: 0,
+}
+export const readonlyAdjustableHeightCodeOptions:editor.IStandaloneDiffEditorConstructionOptions ={
+  quickSuggestions: {
+    other: 'inline',
+    comments: true,
+    strings: true
+  },
+  cursorBlinking: 'smooth',
+  wrappingStrategy: 'advanced',
+  wordWrap: 'on',
+  minimap: { enabled: false },
+  scrollBeyondLastLine: false,
+  overviewRulerLanes: 0,
+  readOnly: true,
+  lineNumbers:'off'
 }

@@ -46,9 +46,18 @@ const MultipleChoiceComponent = (props: IMultipleChoiceComponentProps) => {
         return showResult && incorrectAnswers.indexOf(item.id)>=0
     }
 
-    const itemComponents = items.map(item => <MultipleChoiceItemComponent onChange={onMultipleChoiceItemChange} key={item.id} 
-        parentId={mc.id} item={item} multi={mc.metadata?.multi} incorrect={isIncorrect(item)} disabled={mc.metadata?.disabled}
-        defaultChecked={selectedItems.indexOf(item.id) !== -1}/>);
+    const itemComponents = items.map(item => <MultipleChoiceItemComponent 
+        onChange={onMultipleChoiceItemChange} 
+        key={item.id} 
+        parentId={mc.id} 
+        item={item} 
+        config={{
+            multi: mc.metadata?.multi,
+            incorrect: isIncorrect(item),
+            disabled: mc.metadata?.disabled,
+            defaultChecked: selectedItems.indexOf(item.id) !== -1
+        }}
+    />);
 
     return <>
         <MarkdownComponent {...mc.description}></MarkdownComponent>

@@ -1,26 +1,30 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import React from "react";
 import MarkdownEditorComponent from "../../../components/common/markdown-editor/MarkdownEditorComponent";
+import { DeepStoryObj } from "../../StoryObj";
 
-type TextResponseComponentPropsAndCustomArgs = React.ComponentProps<typeof MarkdownEditorComponent>;
+type MarkdownEditorComponentPropsAndCustomArgs = React.ComponentProps<typeof MarkdownEditorComponent>;
 
-const meta: Meta<TextResponseComponentPropsAndCustomArgs> = {
+const meta: Meta<MarkdownEditorComponentPropsAndCustomArgs> = {
     component: MarkdownEditorComponent
 }
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = DeepStoryObj<typeof meta>;
 const Template = {
     args: {
-        alignVertical: false,
-        codeOptions: undefined,
+        config:{
+            alignVertical: false,
+            codeConfig: undefined,
+        }
+
     },
     render: (args) => {
         return <MarkdownEditorComponent {...args}/>
     },
     argTypes:{
-        codeOptions:{
+        "config.codeOptions":{
             control: false
         }
     }
@@ -32,7 +36,7 @@ const Template = {
 export const Primary :Story = {
     name:'Basic example',
     args:{
-        value: '## What is your option about react?',
+        src: '## What is your option about react?',
         ...Template.args,
     },
     argTypes: Template.argTypes,

@@ -1,21 +1,27 @@
 import { Meta, StoryObj } from "@storybook/react";
-import CodeComponent, { oneLinerCodeOptions } from "../../../../components/src-object/code/CodeComponent";
+import CodeComponent, { adjustableHeightCodeOptions } from "../../../../components/src-object/code/CodeComponent";
+import { DeepStoryObj } from "../../../StoryObj";
 /**
- * Wrapper for Monaco Code editor. Uses the oneLinerCodeOptions in these examples.
+ * Wrapper for Monaco Code editor. Uses the adjustableHeightCodeOptions in these examples.
  */
 const meta: Meta<typeof CodeComponent> = {
     component: CodeComponent,
 };
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = DeepStoryObj<typeof meta>;
 
 export const Primary: Story = {
     name:'Simple javascript',
     args:{
         src: 'let x = 5',
         language: 'javascript',
-        options: {
-            options: oneLinerCodeOptions
+        config: {
+            options: adjustableHeightCodeOptions
+        }
+    },
+    argTypes:{
+        "config.options":{
+            control: false
         }
     }
 };
@@ -24,8 +30,8 @@ export const Secondary: Story = {
     args:{
         src: 'Hello' + '\nWorld\n' + "...",
         language: 'javascript',
-        options: {
-            options: oneLinerCodeOptions
+        config: {
+            options: adjustableHeightCodeOptions
         }
     }
 };

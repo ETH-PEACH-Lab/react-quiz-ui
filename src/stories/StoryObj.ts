@@ -4,6 +4,6 @@ import type {
     StoryAnnotations,
   } from "@storybook/types";
 import type { TypeWithDeepControls } from "storybook-addon-deep-controls";
-export type  StoryObj<T extends Pick<StoryAnnotations, "argTypes">> = TypeWithDeepControls<T> & {
+export type  DeepStoryObj<T extends Pick<StoryAnnotations, "argTypes">> = TypeWithDeepControls<T> & {
     name?: string
 }

@@ -3,7 +3,7 @@ import {Meta } from "@storybook/react";
 import MultipleChoiceComponent from "../../../components/exercise-object/multiple-choice/MultipleChoiceComponent";
 import { fn } from '@storybook/test';
 import IMultipleChoiceItem from '../../../components/exercise-object/multiple-choice/types/IMultipleChoiceItem';
-import { StoryObj } from '../../StoryObj';
+import { DeepStoryObj } from '../../StoryObj';
 
 type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceComponent> & { itemsCount: number };
 
@@ -13,7 +13,7 @@ const meta: Meta<MultipleChoiceComponentPropsAndCustomArgs> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = DeepStoryObj<typeof meta>;
 const Template = {
     args:{
         exerciseObject:{

@@ -37,7 +37,9 @@ const Template = {
 export const First :Story = {
     name:'Radio Button',
     args:{
-        multi: false,
+        config:{
+            multi: false,
+        },
         descriptionText: 'Multiple Choice Item',
         parentId: 'mcq-id',
         onChange: fn()
@@ -47,7 +49,9 @@ export const First :Story = {
 export const Second :Story = {
     name:'Checkbox Button',
     args:{
-        multi: true,
+        config:{
+            multi: true,
+        },
         descriptionText: 'Multiple Choice Item',
         parentId: 'mcq-id',
         onChange: fn()
@@ -57,11 +61,15 @@ export const Second :Story = {
 export const Thrid :Story = {
     name:'Checked checkbox Button',
     args:{
-        multi: true,
+        config:{
+            multi: true,
+            defaultChecked: true
+        },
+  
         descriptionText: 'Multiple Choice Item',
         parentId: 'mcq-id',
         onChange: fn(),
-        defaultChecked: true
+     
     },
     ...Template
 }
