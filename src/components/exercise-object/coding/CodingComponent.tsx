@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { type ExerciseProps } from '../types'
 import { type ICodingAnswer, type ICodingExercise } from './types'
 import CodeComponent, { adjustableHeightCodeOptions, readonlyAdjustableHeightCodeOptions } from '../../src-object/code/CodeComponent'
+import { MarkdownComponent } from '../../src-object'
 interface ICodingComponentProps extends ExerciseProps {
   exerciseObject: ICodingExercise
   initialAnswer: ICodingAnswer
@@ -17,16 +18,19 @@ const CodingComponent: React.FC<ICodingComponentProps> = (props: ICodingComponen
     })
   }, [src])
   return <>
-        {startingCode &&
-        <CodeComponent language={startingCode.language}
-            src={startingCode.src}
-            config={props.exerciseObject.metadata?.startingCodeConfig ?? { options: readonlyAdjustableHeightCodeOptions }}/>}
-        <CodeComponent language={props.initialAnswer.answer.language}
-            src={src}
-            onCodeChange={value => { setSrc(value) }}
-            config={{ options: adjustableHeightCodeOptions }}
+        <MarkdownComponent src={props.exerciseObject.description.src}></MarkdownComponent>
+        <div className='mt-4'>
+            {startingCode &&
+            <CodeComponent language={startingCode.language}
+                src={startingCode.src}
+                config={props.exerciseObject.metadata?.startingCodeConfig ?? { options: readonlyAdjustableHeightCodeOptions }}/>}
+            <CodeComponent language={props.initialAnswer.answer.language}
+                src={src}
+                onCodeChange={value => { setSrc(value) }}
+                config={{ options: adjustableHeightCodeOptions }}
 
-        ></CodeComponent>
+            ></CodeComponent>
+        </div>
      </>
 }
 

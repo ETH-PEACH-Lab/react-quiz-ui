@@ -20,7 +20,7 @@ const Template = {
       id: 'coding-id',
       description: {
         id: 'coding-description-id',
-        src: '## Factorial? \n Please provide the factorial function',
+        src: '## Factorial \n Please provide the factorial function',
         type: 'markdown'
       },
       startingCode: {
