@@ -19,7 +19,7 @@ const TextResponseComponent = (props: ITextResponseComponentProps) => {
     return <>
         <MarkdownComponent src={props.exerciseObject.description.src}></MarkdownComponent>
         <div className='mt-4'>
-            <MarkdownEditorComponent onChange={value => setAnswer(value)} value={answer} />
+            <MarkdownEditorComponent onChange={value => setAnswer(value)} value={answer} alignVertical={props.exerciseObject.metadata?.vertical}/>
         </div>
     </>
 }

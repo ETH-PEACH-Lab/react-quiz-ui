@@ -8,9 +8,11 @@ type MarkdownEditorComponentProps = {
     codeOptions?: ICodeOptions
 }
 const MarkdownEditorComponent = (props: MarkdownEditorComponentProps) => {
+    const Code = <CodeComponent language='markdown' src={props.value} options={props.codeOptions ?? {options:oneLinerCodeOptions}} onCodeChange={props.onChange}></CodeComponent>;
+    const Markdown = <MarkdownComponent src={props.value}></MarkdownComponent>
     return <div className={"grid gap-4 " + (props.alignVertical ? "": "grid-cols-2")}>
-        <CodeComponent language='markdown' src={props.value} options={props.codeOptions ?? {options:oneLinerCodeOptions}} onCodeChange={props.onChange}></CodeComponent>
-        <MarkdownComponent src={props.value}></MarkdownComponent>
+       {(props.alignVertical ? Markdown : Code )}
+       {(props.alignVertical ? Code : Markdown )}
     </div>
 }
 

@@ -62,7 +62,8 @@ const Template = {
             description: 'Allow multiple answers'
         },
         "exerciseObject.metadata.disabled":{
-            control:'boolean'
+            control:'boolean',
+
         },
         "exerciseObject.metadata.correctAnswers":{
             control: 'array'
@@ -72,8 +73,10 @@ const Template = {
         }
     }
 } satisfies Story
+/**
+ * ## Radio Button MC
+ */
 export const First :Story = {
-    name:'Radio Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -87,8 +90,10 @@ export const First :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
+/**
+ * ## Checkbox Button MC
+ */
 export const Second :Story = {
-    name:'Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -102,8 +107,10 @@ export const Second :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
+/**
+ * ## Random Checkbox Button MC
+ */
 export const Third :Story = {
-    name:'Random Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -118,8 +125,10 @@ export const Third :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
+/**
+ * ## Show Evaluation: Checkbox Button MC
+ */
 export const Forth :Story = {
-    name:'Show Evaluation: Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -134,8 +143,10 @@ export const Forth :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
+/**
+ * ## Show Evaluation with inital answer: Checkbox Button MC
+ */
 export const Fifth :Story = {
-    name:'Show Evaluation with inital answer: Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
