@@ -7,13 +7,13 @@ import type ITextResponseAnswer from './types/ITextResponseAnswer'
 
 interface ITextResponseComponentProps extends ExerciseProps {
   exerciseObject: ITextResponseExercise
-  onAnswerChange: (answer: ITextResponseAnswer) => void
+  onAnswerChanges: (answer: ITextResponseAnswer) => void
   initialAnswer: ITextResponseAnswer
 }
 const TextResponseComponent: React.FC<ITextResponseComponentProps> = (props: ITextResponseComponentProps) => {
   const [answer, setAnswer] = useState(props.initialAnswer.answer.src)
   useEffect(() => {
-    props.onAnswerChange({
+    props.onAnswerChanges({
       exerciseId: props.exerciseObject.id,
       answer: { ...props.initialAnswer?.answer, src: answer }
     })
