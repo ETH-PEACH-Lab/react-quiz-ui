@@ -3,7 +3,7 @@ import {Meta } from "@storybook/react";
 import MultipleChoiceComponent from "../../../components/exercise-object/multiple-choice/MultipleChoiceComponent";
 import { fn } from '@storybook/test';
 import IMultipleChoiceItem from '../../../components/exercise-object/multiple-choice/types/IMultipleChoiceItem';
-import type { TypeWithDeepControls } from "storybook-addon-deep-controls";
+import { StoryObj } from '../../StoryObj';
 
 type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceComponent> & { itemsCount: number };
 
@@ -13,7 +13,7 @@ const meta: Meta<MultipleChoiceComponentPropsAndCustomArgs> = {
 
 export default meta;
 
-type Story = TypeWithDeepControls<typeof meta>;
+type Story = StoryObj<typeof meta>;
 const Template = {
     args:{
         exerciseObject:{
@@ -73,10 +73,9 @@ const Template = {
         }
     }
 } satisfies Story
-/**
- * ## Radio Button MC
- */
+
 export const First :Story = {
+    name: 'Radio Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -90,10 +89,9 @@ export const First :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
-/**
- * ## Checkbox Button MC
- */
+
 export const Second :Story = {
+    name: 'Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -107,10 +105,8 @@ export const Second :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
-/**
- * ## Random Checkbox Button MC
- */
 export const Third :Story = {
+    name: 'Random Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -125,10 +121,9 @@ export const Third :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
-/**
- * ## Show Evaluation: Checkbox Button MC
- */
+
 export const Forth :Story = {
+    name: 'Show Evaluation: Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
@@ -143,10 +138,8 @@ export const Forth :Story = {
     argTypes: Template.argTypes,
     render: Template.render
 }
-/**
- * ## Show Evaluation with inital answer: Checkbox Button MC
- */
 export const Fifth :Story = {
+    name: 'Show Evaluation with inital answer: Checkbox Button MC',
     args:{
         ...Template.args,
         exerciseObject:{
