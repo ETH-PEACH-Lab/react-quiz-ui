@@ -1,2 +1,2 @@
 export * from './multiple-choice';
-export * from './types/IExerciseReference';
+export * from './types/IExerciseAnswer';

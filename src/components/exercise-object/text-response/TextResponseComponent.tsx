@@ -7,11 +7,10 @@ import ITextResponseAnswer from './types/ITextResponseAnswer'
 
 interface ITextResponseComponentProps extends ExerciseProps {
     exerciseObject: ITextResponseExercise,
-    initialAnswer?: ITextResponseAnswer,
     onAnswerChange: (answer: ITextResponseAnswer) => void
 }
 const TextResponseComponent = (props: ITextResponseComponentProps) => {
-    const [answer, setAnswer] = useState(props.initialAnswer?.answer ?? '');
+    const [answer, setAnswer] = useState(props.exerciseObject.metadata?.initialAnswer?.answer ?? '');
     useEffect(() => {
         props.onAnswerChanges({exerciseId: props.exerciseObject.id, answer:answer});
     }, [answer, props.onAnswerChanges]);

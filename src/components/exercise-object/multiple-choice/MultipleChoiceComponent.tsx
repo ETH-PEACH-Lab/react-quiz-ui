@@ -9,12 +9,11 @@ import IMultipleChoiceAnswer from './types/IMultipleChoiceAnswer'
 
 interface IMultipleChoiceComponentProps extends ExerciseProps {
     exerciseObject: IMultipleChoiceExercise,
-    initialAnswer?: IMultipleChoiceAnswer,
     onAnswerChanges: (value: IMultipleChoiceAnswer) => void
 }
 const MultipleChoiceComponent = (props: IMultipleChoiceComponentProps) => {
-    const [selectedItems,setItemsAnswers] = useState<string[]>(props.initialAnswer?.answer ?? [])
     const mc = props.exerciseObject;
+    const [selectedItems,setItemsAnswers] = useState<string[]>(mc.metadata?.initialAnswer?.answer ?? [])
     const items = useMemo(()=> {
         return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items;
     },[mc.metadata?.random, mc.items])

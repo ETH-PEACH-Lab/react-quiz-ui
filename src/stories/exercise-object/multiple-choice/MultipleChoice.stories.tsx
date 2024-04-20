@@ -1,8 +1,9 @@
 import React from 'react'
-import {Meta, StoryObj } from "@storybook/react";
+import {Meta } from "@storybook/react";
 import MultipleChoiceComponent from "../../../components/exercise-object/multiple-choice/MultipleChoiceComponent";
 import { fn } from '@storybook/test';
 import IMultipleChoiceItem from '../../../components/exercise-object/multiple-choice/types/IMultipleChoiceItem';
+import type { TypeWithDeepControls } from "storybook-addon-deep-controls";
 
 type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceComponent> & { itemsCount: number };
 
@@ -12,7 +13,7 @@ const meta: Meta<MultipleChoiceComponentPropsAndCustomArgs> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = TypeWithDeepControls<typeof meta>;
 const Template = {
     args:{
         exerciseObject:{
@@ -45,21 +46,29 @@ const Template = {
         return <MultipleChoiceComponent {...args} exerciseObject={{...args.exerciseObject, items: items}}/>
     },
     argTypes:{
+        "exerciseObject.items":{
+            control: false
+        },
+        "exerciseObject.metadata.showEvaluation":{
+            control:'boolean',
+            description: 'Will show the evalualtion, iff it is set to true and the correctAnswers array is not empty'
+        },
+        "exerciseObject.metadata.random":{
+            control:'boolean',
+            description: 'Assign random location to each multiple choice item'
+        },
+        "exerciseObject.metadata.multi":{
+            control:'boolean',
+            description: 'Allow multiple answers'
+        },
+        "exerciseObject.metadata.disabled":{
+            control:'boolean'
+        },
+        "exerciseObject.metadata.correctAnswers":{
+            control: 'array'
+        },
         itemsCount:{
             description: 'Storybook argument'
-        },
-        exerciseObject:{
-            metadata:{
-                showEvaluation:{
-                    description: 'Will show the evalualtion, iff it is set to true and the correctAnswers array is not empty'
-                },
-                random:{
-                    description: 'Assign random location to each multiple choice item'
-                },
-                multi:{
-                    description: 'Allow multiple answers'
-                },
-            }
         }
     }
 } satisfies Story
@@ -134,13 +143,13 @@ export const Fifth :Story = {
             metadata:{
                 ...Template.args.exerciseObject.metadata,
                 multi:true,
-                showEvaluation:true
+                showEvaluation:true,
+                initialAnswer:  {
+                    exerciseId: Template.args.exerciseObject.id,
+                    answer: ['mc-item-1']
+                }
             }
         },
-        initialAnswer:  {
-            exerciseId: Template.args.exerciseObject.id,
-            answer: ['mc-item-1']
-        }
     },
     argTypes: Template.argTypes,
     render: Template.render

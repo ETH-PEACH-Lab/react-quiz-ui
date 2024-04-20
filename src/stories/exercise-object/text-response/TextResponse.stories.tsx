@@ -43,9 +43,15 @@ export const Secondary :Story = {
     name:'With inital value',
     args:{
         ...Template.args,
-        initialAnswer:{
-            exerciseId: Template.args.exerciseObject.id,
-            answer: 'I love currying'
+        exerciseObject:{
+            ...Template.args.exerciseObject,
+            metadata:{
+                ...Template.args.exerciseObject.metadata,
+                initialAnswer:{
+                    exerciseId: Template.args.exerciseObject.id,
+                    answer: 'I love currying'
+                }
+            }
         }
     },
     render: Template.render
