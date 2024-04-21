@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import type IMultipleChoiceItem from './types/IMultipleChoiceItem'
 import { MarkdownComponent } from '../../src-object'
 import MultipleChoiceItemComponent from './item/MultipleChoiceItemComponent'
@@ -20,15 +20,14 @@ const MultipleChoiceComponent: React.FC<IMultipleChoiceComponentProps> = (props:
     return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items
   }, [mc.metadata?.random, mc.items])
 
-  const incorrectAnswers = useMemo(() => selectedItems.filter(item => {
-    return mc.metadata?.correctAnswers?.includes(item)
-  }), [mc.metadata?.correctAnswers, selectedItems])
+  const incorrectAnswers = useMemo(() => selectedItems.filter(item => !mc.metadata?.correctAnswers?.includes(item)),
+    [mc.metadata?.correctAnswers, selectedItems])
 
   useEffect(() => {
     props.onAnswerChanges({ exerciseId: mc.id, answer: selectedItems })
   }, [selectedItems, props.onAnswerChanges])
 
-  const onMultipleChoiceItemChange: (id: string, checked: boolean) => void = useCallback((id: string, checked: boolean) => {
+  const onMultipleChoiceItemChange: (id: string, checked: boolean) => void = (id: string, checked: boolean) => {
     if (!mc.metadata?.multi) {
       setItemsAnswers([id]); return
     }
@@ -36,7 +35,7 @@ const MultipleChoiceComponent: React.FC<IMultipleChoiceComponentProps> = (props:
       setItemsAnswers(selectedItems.filter(item => item !== id)); return
     }
     setItemsAnswers([...selectedItems, id])
-  }, [mc.metadata?.multi])
+  }
 
   const isIncorrect: (item: IMultipleChoiceItem) => boolean = (item: IMultipleChoiceItem) => {
     const showResult = (mc.metadata?.showEvaluation && mc.metadata.correctAnswers && mc.metadata.correctAnswers.length > 0) ?? false
