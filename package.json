@@ -1,6 +1,6 @@
 {
   "name": "react-quiz-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI library for quizzes",
   "type": "module",
   "main": "dist/index.cjs.js",
