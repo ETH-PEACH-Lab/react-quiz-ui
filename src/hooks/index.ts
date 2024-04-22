@@ -1,1 +1,1 @@
-export * from "./useArrayShuffle";
+export * from './useArrayShuffle';

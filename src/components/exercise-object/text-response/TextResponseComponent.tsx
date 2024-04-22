@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { MarkdownComponent } from "../../src-object";
-import { type ExerciseProps } from "../types/ExerciseProps";
-import MarkdownEditorComponent from "../../common/markdown-editor/MarkdownEditorComponent";
-import type ITextResponseExercise from "./types/ITextResponseExercise";
-import type ITextResponseAnswer from "./types/ITextResponseAnswer";
+import React, { useEffect, useState } from 'react';
+import { MarkdownComponent } from '../../src-object';
+import { type ExerciseProps } from '../types/ExerciseProps';
+import MarkdownEditorComponent from '../../common/markdown-editor/MarkdownEditorComponent';
+import type ITextResponseExercise from './types/ITextResponseExercise';
+import type ITextResponseAnswer from './types/ITextResponseAnswer';
 
 const TextResponseComponent: React.FC<
   ExerciseProps<ITextResponseExercise, ITextResponseAnswer>
@@ -19,8 +19,7 @@ const TextResponseComponent: React.FC<
   return (
     <>
       <MarkdownComponent
-        src={props.exerciseObject.description.src}
-      ></MarkdownComponent>
+        src={props.exerciseObject.description.src}></MarkdownComponent>
       <div className="mt-4">
         <MarkdownEditorComponent
           onChange={(value) => {

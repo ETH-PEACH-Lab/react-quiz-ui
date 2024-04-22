@@ -1,1 +1,1 @@
-export * from "./MultipleChoiceItemComponent";
+export * from './MultipleChoiceItemComponent';

@@ -1,22 +1,22 @@
-import React from "react";
-import { type ExerciseProps } from "./types";
-import type IExerciseObject from "./types/IExerciseObject";
-import type IExerciseAnswer from "./types/IExerciseAnswer";
-import ExerciseComponentRegistry from "./ExerciseComponentRegistry";
-import TextResponseComponent from "./text-response/TextResponseComponent";
-import MultipleChoiceComponent from "./multiple-choice/MultipleChoiceComponent";
-import CodingComponent from "./coding/CodingComponent";
+import React from 'react';
+import { type ExerciseProps } from './types';
+import type IExerciseObject from './types/IExerciseObject';
+import type IExerciseAnswer from './types/IExerciseAnswer';
+import ExerciseComponentRegistry from './ExerciseComponentRegistry';
+import TextResponseComponent from './text-response/TextResponseComponent';
+import MultipleChoiceComponent from './multiple-choice/MultipleChoiceComponent';
+import CodingComponent from './coding/CodingComponent';
 
 ExerciseComponentRegistry.registerExerciseComponent(
-  "text-response-exercise",
+  'text-response-exercise',
   TextResponseComponent,
 );
 ExerciseComponentRegistry.registerExerciseComponent(
-  "multiple-choice-exercise",
+  'multiple-choice-exercise',
   MultipleChoiceComponent,
 );
 ExerciseComponentRegistry.registerExerciseComponent(
-  "coding-exercise",
+  'coding-exercise',
   CodingComponent,
 );
 

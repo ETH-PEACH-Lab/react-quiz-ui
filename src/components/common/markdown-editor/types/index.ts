@@ -1,1 +1,1 @@
-export * from "./IMardownEditorConfig";
+export * from './IMardownEditorConfig';

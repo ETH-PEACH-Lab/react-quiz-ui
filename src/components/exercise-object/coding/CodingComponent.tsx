@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { type ExerciseProps } from "../types";
+import React, { useEffect, useState } from 'react';
+import { type ExerciseProps } from '../types';
 import CodeComponent, {
   adjustableHeightCodeOptions,
   readonlyAdjustableHeightCodeOptions,
-} from "../../src-object/code/CodeComponent";
-import { MarkdownComponent } from "../../src-object";
-import { type ICodingAnswer, type ICodingExercise } from "./types";
+} from '../../src-object/code/CodeComponent';
+import { MarkdownComponent } from '../../src-object';
+import { type ICodingAnswer, type ICodingExercise } from './types';
 
 const CodingComponent: React.FC<
   ExerciseProps<ICodingExercise, ICodingAnswer>
@@ -21,8 +21,7 @@ const CodingComponent: React.FC<
   return (
     <>
       <MarkdownComponent
-        src={props.exerciseObject.description.src}
-      ></MarkdownComponent>
+        src={props.exerciseObject.description.src}></MarkdownComponent>
       <div className="mt-4">
         {startingCode && (
           <CodeComponent
@@ -41,8 +40,7 @@ const CodingComponent: React.FC<
           onCodeChange={(value) => {
             setSrc(value);
           }}
-          config={{ options: adjustableHeightCodeOptions }}
-        ></CodeComponent>
+          config={{ options: adjustableHeightCodeOptions }}></CodeComponent>
       </div>
     </>
   );

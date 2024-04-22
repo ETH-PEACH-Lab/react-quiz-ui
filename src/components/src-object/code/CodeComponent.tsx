@@ -1,7 +1,7 @@
-import { Editor } from "@monaco-editor/react";
-import { type editor } from "monaco-editor";
-import React from "react";
-import { type ICodeConfig } from "./types";
+import { Editor } from '@monaco-editor/react';
+import { type editor } from 'monaco-editor';
+import React from 'react';
+import { type ICodeConfig } from './types';
 
 interface CodeComponentProps {
   src: string;
@@ -16,7 +16,7 @@ const CodeComponent: React.FC<CodeComponentProps> = (
     value: string | undefined,
   ) => {
     if (props.onCodeChange) {
-      props.onCodeChange(value ?? "");
+      props.onCodeChange(value ?? '');
     }
   };
   const onEditorMount: (editor: editor.IStandaloneCodeEditor) => void = (
@@ -48,7 +48,7 @@ const CodeComponent: React.FC<CodeComponentProps> = (
 
   return (
     <Editor
-      height={props.config?.fullHeight ? "100%" : "auto"}
+      height={props.config?.fullHeight ? '100%' : 'auto'}
       options={props.config?.options}
       theme={props.config?.theme}
       value={props.src}
@@ -64,13 +64,13 @@ export default CodeComponent;
 export const adjustableHeightCodeOptions: editor.IStandaloneDiffEditorConstructionOptions =
   {
     quickSuggestions: {
-      other: "inline",
+      other: 'inline',
       comments: true,
       strings: true,
     },
-    cursorBlinking: "smooth",
-    wrappingStrategy: "advanced",
-    wordWrap: "on",
+    cursorBlinking: 'smooth',
+    wrappingStrategy: 'advanced',
+    wordWrap: 'on',
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
     overviewRulerLanes: 0,
@@ -78,24 +78,24 @@ export const adjustableHeightCodeOptions: editor.IStandaloneDiffEditorConstructi
 export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneDiffEditorConstructionOptions =
   {
     quickSuggestions: {
-      other: "inline",
+      other: 'inline',
       comments: true,
       strings: true,
     },
-    cursorBlinking: "smooth",
-    wrappingStrategy: "advanced",
-    wordWrap: "on",
+    cursorBlinking: 'smooth',
+    wrappingStrategy: 'advanced',
+    wordWrap: 'on',
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
     overviewRulerLanes: 0,
     readOnly: true,
-    lineNumbers: (_: number) => " ",
+    lineNumbers: (_: number) => ' ',
   };
 
 CodeComponent.defaultProps = {
   config: {
     fullHeight: false,
     options: adjustableHeightCodeOptions,
-    theme: "light",
+    theme: 'light',
   },
 };

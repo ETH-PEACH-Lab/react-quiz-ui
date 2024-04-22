@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
-import type IMultipleChoiceItem from "./types/IMultipleChoiceItem";
-import { MarkdownComponent } from "../../src-object";
-import MultipleChoiceItemComponent from "./item/MultipleChoiceItemComponent";
-import useArrayShuffle from "../../../hooks/useArrayShuffle";
-import { type ExerciseProps } from "../types";
-import type IMultipleChoiceExercise from "./types/IMultipleChoiceExercise";
-import type IMultipleChoiceAnswer from "./types/IMultipleChoiceAnswer";
+import React, { useEffect, useMemo, useState } from 'react';
+import type IMultipleChoiceItem from './types/IMultipleChoiceItem';
+import { MarkdownComponent } from '../../src-object';
+import MultipleChoiceItemComponent from './item/MultipleChoiceItemComponent';
+import useArrayShuffle from '../../../hooks/useArrayShuffle';
+import { type ExerciseProps } from '../types';
+import type IMultipleChoiceExercise from './types/IMultipleChoiceExercise';
+import type IMultipleChoiceAnswer from './types/IMultipleChoiceAnswer';
 
 const MultipleChoiceComponent: React.FC<
   ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>
@@ -84,7 +84,7 @@ const MultipleChoiceComponent: React.FC<
 };
 MultipleChoiceComponent.defaultProps = {
   initialAnswer: {
-    exerciseId: "",
+    exerciseId: '',
     answer: [],
   },
 };

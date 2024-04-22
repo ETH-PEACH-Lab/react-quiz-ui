@@ -5,7 +5,7 @@ class ExerciseComponentRegistry {
     type: string,
     component: React.FC<any>,
   ) => {
-    console.log("test");
+    console.log('test');
     if (this.registry.has(type)) {
       console.warn(`Exercise with ${type} is already registered`);
       return;

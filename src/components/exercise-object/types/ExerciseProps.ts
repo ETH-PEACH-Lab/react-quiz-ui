@@ -1,5 +1,5 @@
-import type IExerciseObject from "./IExerciseObject";
-import type IExerciseAnswer from "./IExerciseAnswer";
+import type IExerciseObject from './IExerciseObject';
+import type IExerciseAnswer from './IExerciseAnswer';
 
 export interface ExerciseProps<
   T extends IExerciseObject,

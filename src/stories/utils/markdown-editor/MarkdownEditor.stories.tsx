@@ -1,7 +1,7 @@
-import { type Meta } from "@storybook/react";
-import React from "react";
-import MarkdownEditorComponent from "../../../components/common/markdown-editor/MarkdownEditorComponent";
-import { type DeepStoryObj } from "../../StoryObj";
+import { type Meta } from '@storybook/react';
+import React from 'react';
+import MarkdownEditorComponent from '../../../components/common/markdown-editor/MarkdownEditorComponent';
+import { type DeepStoryObj } from '../../StoryObj';
 
 type MarkdownEditorComponentPropsAndCustomArgs = React.ComponentProps<
   typeof MarkdownEditorComponent
@@ -24,7 +24,7 @@ const Template = {
     return <MarkdownEditorComponent {...args} />;
   },
   argTypes: {
-    "config.codeOptions": {
+    'config.codeOptions': {
       control: false,
     },
   },
@@ -34,9 +34,9 @@ const Template = {
  * **The state has to be managed by the parent component.**
  */
 export const Primary: Story = {
-  name: "Basic example",
+  name: 'Basic example',
   args: {
-    src: "## What is your option about react?",
+    src: '## What is your option about react?',
     ...Template.args,
   },
   argTypes: Template.argTypes,

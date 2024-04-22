@@ -18,9 +18,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs-build",
     "lint": "eslint src/",
-    "lint:fix": "npm run lint --fix",
-    "lint:quiet": "npm run lint --quiet",
-    "prettier": "npx prettier src --check",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:quiet": "npm run lint -- --quiet",
+    "prettier": "npx prettier --check --config .prettierrc.json src",
     "prettier:fix": "npm run prettier -- --write"
   },
   "repository": {
@@ -59,13 +59,10 @@
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "@types/styled-components": "^5.1.34",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
     "daisyui": "^4.10.2",
-    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.1",
     "gh-pages": "^6.1.1",
     "globals": "^15.0.0",
@@ -103,5 +100,4 @@
       "npm run lint:fix"
     ]
   }
-  
 }

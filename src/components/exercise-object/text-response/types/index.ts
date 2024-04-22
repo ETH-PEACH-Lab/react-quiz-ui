@@ -1,3 +1,3 @@
-export * from "./ITextResponseAnswer";
-export * from "./ITextResponseExercise";
-export * from "./ITextResponseMetadata";
+export * from './ITextResponseAnswer';
+export * from './ITextResponseExercise';
+export * from './ITextResponseMetadata';

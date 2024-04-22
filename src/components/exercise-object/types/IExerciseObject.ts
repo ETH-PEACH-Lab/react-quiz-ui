@@ -1,5 +1,5 @@
-import { type ITypedObject } from "../../../types";
-import { type IMarkdown } from "../../src-object";
+import { type ITypedObject } from '../../../types';
+import { type IMarkdown } from '../../src-object';
 
 export default interface IExerciseObject extends ITypedObject {
   description: IMarkdown;

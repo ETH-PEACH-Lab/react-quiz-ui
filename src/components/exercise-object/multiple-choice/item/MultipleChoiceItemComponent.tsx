@@ -1,7 +1,7 @@
-import React from "react";
-import type IMultipleChoiceItem from "../types/IMultipleChoiceItem";
-import { MarkdownComponent } from "../../../src-object";
-import { type IMultipleChoiceItemConfig } from "./types/IMultipleChoiceItemConfig";
+import React from 'react';
+import type IMultipleChoiceItem from '../types/IMultipleChoiceItem';
+import { MarkdownComponent } from '../../../src-object';
+import { type IMultipleChoiceItemConfig } from './types/IMultipleChoiceItemConfig';
 
 interface MultipleChoiceItemComponentProps {
   item: IMultipleChoiceItem;
@@ -22,8 +22,8 @@ const MultipleChoiceItemComponent: React.FC<
               type="checkbox"
               disabled={props.config.disabled}
               className={
-                "checkbox checkbox-sm " +
-                (!props.config.incorrect ? "checkbox-accent" : "checkbox-error")
+                'checkbox checkbox-sm ' +
+                (!props.config.incorrect ? 'checkbox-accent' : 'checkbox-error')
               }
               onChange={(event) => {
                 props.onChange(props.item.id, event.target.checked);
@@ -38,8 +38,8 @@ const MultipleChoiceItemComponent: React.FC<
               disabled={props.config.disabled}
               name={props.parentId}
               className={
-                "radio radio-sm " +
-                (!props.config.incorrect ? "radio-accent" : "radio-error")
+                'radio radio-sm ' +
+                (!props.config.incorrect ? 'radio-accent' : 'radio-error')
               }
               onChange={(event) => {
                 props.onChange(props.item.id, event.target.checked);

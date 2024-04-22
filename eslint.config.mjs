@@ -13,12 +13,13 @@ const compat = new FlatCompat({ baseDirectory: __dirname, recommendedConfig: plu
 
 export default [
   ...compat.extends('standard-with-typescript'),
+  ...compat.extends('plugin:prettier/recommended'),
   { 
     languageOptions: { globals: globals.browser },  
     files: ["src/**/*.{ts,tsx}"],
     rules:{
       "@typescript-eslint/strict-boolean-expressions": "off"
-    } 
+    }
   },
   pluginReactConfig,
 ]
