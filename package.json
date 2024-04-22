@@ -10,7 +10,7 @@
     "/dist"
   ],
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "husky",
     "build": "tsc && vite build",
     "test": "vitest run",
     "test-watch": "vitest",
