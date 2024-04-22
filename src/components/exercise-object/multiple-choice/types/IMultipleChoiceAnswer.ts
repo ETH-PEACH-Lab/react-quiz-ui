@@ -1,5 +1,5 @@
-import type IExerciseAnswer from '../../types/IExerciseAnswer'
+import type IExerciseAnswer from "../../types/IExerciseAnswer";
 
 export default interface IMultipleChoiceAnswer extends IExerciseAnswer {
-  answer: string[]
+  answer: string[];
 }

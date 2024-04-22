@@ -1,37 +1,39 @@
-import { type Meta } from '@storybook/react'
-import CodeComponent, { adjustableHeightCodeOptions } from '../../../../components/src-object/code/CodeComponent'
-import { type DeepStoryObj } from '../../../StoryObj'
+import { type Meta } from "@storybook/react";
+import CodeComponent, {
+  adjustableHeightCodeOptions,
+} from "../../../../components/src-object/code/CodeComponent";
+import { type DeepStoryObj } from "../../../StoryObj";
 /**
  * Wrapper for Monaco Code editor. Uses the adjustableHeightCodeOptions in these examples.
  */
 const meta: Meta<typeof CodeComponent> = {
-  component: CodeComponent
-}
-export default meta
-type Story = DeepStoryObj<typeof meta>
+  component: CodeComponent,
+};
+export default meta;
+type Story = DeepStoryObj<typeof meta>;
 
 export const Primary: Story = {
-  name: 'Simple javascript',
+  name: "Simple javascript",
   args: {
-    src: 'let x = 5',
-    language: 'javascript',
+    src: "let x = 5",
+    language: "javascript",
     config: {
-      options: adjustableHeightCodeOptions
-    }
+      options: adjustableHeightCodeOptions,
+    },
   },
   argTypes: {
-    'config.options': {
-      control: false
-    }
-  }
-}
+    "config.options": {
+      control: false,
+    },
+  },
+};
 export const Secondary: Story = {
-  name: 'Simple multiline',
+  name: "Simple multiline",
   args: {
-    src: 'Hello' + '\nWorld\n' + '...',
-    language: 'javascript',
+    src: "Hello" + "\nWorld\n" + "...",
+    language: "javascript",
     config: {
-      options: adjustableHeightCodeOptions
-    }
-  }
-}
+      options: adjustableHeightCodeOptions,
+    },
+  },
+};

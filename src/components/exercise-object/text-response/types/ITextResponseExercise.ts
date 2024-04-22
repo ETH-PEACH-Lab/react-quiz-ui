@@ -1,7 +1,7 @@
-import type IExerciseObject from '../../types/IExerciseObject'
-import { type ITextResponseMetadata } from './ITextResponseMetadata'
+import type IExerciseObject from "../../types/IExerciseObject";
+import { type ITextResponseMetadata } from "./ITextResponseMetadata";
 
 export default interface ITextResponseExercise extends IExerciseObject {
-  type: 'text-response-exercise'
-  metadata?: ITextResponseMetadata
+  type: "text-response-exercise";
+  metadata?: ITextResponseMetadata;
 }

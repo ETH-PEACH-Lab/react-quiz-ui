@@ -1,5 +1,5 @@
-import { type IObject } from './IObject'
+import { type IObject } from "./IObject";
 
 export interface ITypedObject extends IObject {
-  type: string
+  type: string;
 }

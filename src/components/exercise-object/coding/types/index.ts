@@ -1,3 +1,3 @@
-export * from './ICodingAnwser'
-export * from './ICodingExercise'
-export * from './ICodingMetadata'
+export * from "./ICodingAnwser";
+export * from "./ICodingExercise";
+export * from "./ICodingMetadata";

@@ -1,6 +1,6 @@
-import { type ICodeConfig } from '../../../src-object'
+import { type ICodeConfig } from "../../../src-object";
 
 export interface IMarkdownEditorConfig {
-  alignVertical?: boolean
-  codeConfig?: ICodeConfig
+  alignVertical?: boolean;
+  codeConfig?: ICodeConfig;
 }

@@ -1,3 +1,3 @@
-export * from './ICode'
-export * from './ICodeConfig'
-export * from './ICodeObject'
+export * from "./ICode";
+export * from "./ICodeConfig";
+export * from "./ICodeObject";

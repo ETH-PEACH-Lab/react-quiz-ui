@@ -1,1 +1,1 @@
-export * from './IMarkdown'
+export * from "./IMarkdown";

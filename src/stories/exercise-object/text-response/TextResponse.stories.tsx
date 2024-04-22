@@ -1,62 +1,64 @@
-import { type Meta, type StoryObj } from '@storybook/react'
-import TextResponseComponent from '../../../components/exercise-object/text-response/TextResponseComponent'
-import React from 'react'
-import { fn } from '@storybook/test'
+import { type Meta, type StoryObj } from "@storybook/react";
+import TextResponseComponent from "../../../components/exercise-object/text-response/TextResponseComponent";
+import React from "react";
+import { fn } from "@storybook/test";
 
-type TextResponseComponentPropsAndCustomArgs = React.ComponentProps<typeof TextResponseComponent>
+type TextResponseComponentPropsAndCustomArgs = React.ComponentProps<
+  typeof TextResponseComponent
+>;
 
 const meta: Meta<TextResponseComponentPropsAndCustomArgs> = {
-  component: TextResponseComponent
-}
+  component: TextResponseComponent,
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 const Template = {
   args: {
     exerciseObject: {
-      id: 'text-response-id',
+      id: "text-response-id",
       description: {
-        id: 'text-response-description-id',
-        src: '## What is your opinion on functional programming?',
-        type: 'markdown'
+        id: "text-response-description-id",
+        src: "## What is your opinion on functional programming?",
+        type: "markdown",
       },
-      type: 'text-response-exercise'
+      type: "text-response-exercise",
     },
     initialAnswer: {
-      exerciseId: 'text-response-id',
+      exerciseId: "text-response-id",
       answer: {
-        id: 'text-response-answer-id',
-        src: '',
-        type: 'markdown'
-      }
+        id: "text-response-answer-id",
+        src: "",
+        type: "markdown",
+      },
     },
-    onAnswerChanges: fn()
+    onAnswerChanges: fn(),
   },
   render: (args) => {
-    return <TextResponseComponent {...args}/>
-  }
-} satisfies Story
-export const Primary: Story = {
-  name: 'Base example',
-  args: {
-    ...Template.args
+    return <TextResponseComponent {...args} />;
   },
-  render: Template.render
-}
+} satisfies Story;
+export const Primary: Story = {
+  name: "Base example",
+  args: {
+    ...Template.args,
+  },
+  render: Template.render,
+};
 export const Secondary: Story = {
-  name: 'With inital value',
+  name: "With inital value",
   args: {
     ...Template.args,
     initialAnswer: {
       exerciseId: Template.args.exerciseObject.id,
       answer: {
-        id: 'text-response-answer-id',
-        src: 'I love currying',
-        type: 'markdown'
-      }
-    }
+        id: "text-response-answer-id",
+        src: "I love currying",
+        type: "markdown",
+      },
+    },
   },
 
-  render: Template.render
-}
+  render: Template.render,
+};

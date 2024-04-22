@@ -2,16 +2,26 @@
   "name": "react-quiz-ui",
   "version": "1.0.0",
   "description": "UI library for quizzes",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs-build",
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "lint:quiet": "eslint src/ --quiet"
+    "lint:fix": "npm run lint --fix",
+    "lint:quiet": "npm run lint --quiet",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "repository": {
     "type": "git",
@@ -32,9 +42,6 @@
     "@chromatic-com/storybook": "^1.3.2",
     "@eslint/eslintrc": "^3.0.2",
     "@eslint/js": "^9.1.1",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-essentials": "^8.0.8",
     "@storybook/addon-interactions": "^8.0.8",
     "@storybook/addon-links": "^8.0.8",
@@ -46,6 +53,8 @@
     "@storybook/react-vite": "^8.0.8",
     "@storybook/react-webpack5": "^8.0.8",
     "@storybook/test": "^8.0.8",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
     "@tsconfig/recommended": "^1.0.6",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
@@ -60,18 +69,20 @@
     "eslint-plugin-react": "^7.34.1",
     "gh-pages": "^6.1.1",
     "globals": "^15.0.0",
+    "husky": "^9.0.11",
+    "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.2",
     "postcss-loader": "^8.1.1",
+    "prettier": "3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
     "storybook": "^8.0.8",
     "storybook-addon-deep-controls": "^0.6.2",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^3.8.3",
+    "vitest": "^1.5.0"
   },
   "peerDependencies": {
     "@types/react": "^18.2.78",
@@ -85,5 +96,12 @@
     "monaco-editor": "^0.47.0",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run prettier:fix",
+      "npm run lint:fix"
+    ]
   }
+  
 }

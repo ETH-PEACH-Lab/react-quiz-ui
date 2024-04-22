@@ -1,5 +1,3 @@
-import { type IMarkdown } from '../../../src-object'
+import { type IMarkdown } from "../../../src-object";
 
-export default interface IMultipleChoiceItem extends IMarkdown {
-
-}
+export default interface IMultipleChoiceItem extends IMarkdown {}

@@ -1,75 +1,76 @@
-import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import MultipleChoiceItemComponent from '../../../../components/exercise-object/multiple-choice/item/MultipleChoiceItemComponent'
-import { fn } from '@storybook/test'
-import { type IMarkdown } from '../../../../components'
+import React from "react";
+import { type Meta, type StoryObj } from "@storybook/react";
+import MultipleChoiceItemComponent from "../../../../components/exercise-object/multiple-choice/item/MultipleChoiceItemComponent";
+import { fn } from "@storybook/test";
+import { type IMarkdown } from "../../../../components";
 
-type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<typeof MultipleChoiceItemComponent> & { descriptionText: string }
+type MultipleChoiceComponentPropsAndCustomArgs = React.ComponentProps<
+  typeof MultipleChoiceItemComponent
+> & { descriptionText: string };
 
 const meta: Meta<MultipleChoiceComponentPropsAndCustomArgs> = {
-  component: MultipleChoiceItemComponent
-}
+  component: MultipleChoiceItemComponent,
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 const Template = {
   render: (args) => {
     const description: IMarkdown = {
-      id: 'mc-item-id',
+      id: "mc-item-id",
       src: args.descriptionText,
-      type: 'markdown'
-    }
-    return <MultipleChoiceItemComponent {...args} item={description}/>
+      type: "markdown",
+    };
+    return <MultipleChoiceItemComponent {...args} item={description} />;
   },
   argTypes: {
     parentId: {
-      control: false
+      control: false,
     },
     descriptionText: {
-      description: 'Storybook argument'
+      description: "Storybook argument",
     },
     item: {
-      control: false
-    }
-  }
-} satisfies Story
+      control: false,
+    },
+  },
+} satisfies Story;
 export const First: Story = {
-  name: 'Radio Button',
+  name: "Radio Button",
   args: {
     config: {
-      multi: false
+      multi: false,
     },
-    descriptionText: 'Multiple Choice Item',
-    parentId: 'mcq-id',
-    onChange: fn()
+    descriptionText: "Multiple Choice Item",
+    parentId: "mcq-id",
+    onChange: fn(),
   },
-  ...Template
-}
+  ...Template,
+};
 export const Second: Story = {
-  name: 'Checkbox Button',
-  args: {
-    config: {
-      multi: true
-    },
-    descriptionText: 'Multiple Choice Item',
-    parentId: 'mcq-id',
-    onChange: fn()
-  },
-  ...Template
-}
-export const Thrid: Story = {
-  name: 'Checked checkbox Button',
+  name: "Checkbox Button",
   args: {
     config: {
       multi: true,
-      defaultChecked: true
+    },
+    descriptionText: "Multiple Choice Item",
+    parentId: "mcq-id",
+    onChange: fn(),
+  },
+  ...Template,
+};
+export const Thrid: Story = {
+  name: "Checked checkbox Button",
+  args: {
+    config: {
+      multi: true,
+      defaultChecked: true,
     },
 
-    descriptionText: 'Multiple Choice Item',
-    parentId: 'mcq-id',
-    onChange: fn()
-
+    descriptionText: "Multiple Choice Item",
+    parentId: "mcq-id",
+    onChange: fn(),
   },
-  ...Template
-}
+  ...Template,
+};
