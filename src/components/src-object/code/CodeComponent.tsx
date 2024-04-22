@@ -35,6 +35,7 @@ const CodeComponent: React.FC<CodeComponentProps> = (props: CodeComponentProps) 
     editorElement.style.height = `${height}px`
     editor.layout()
   }
+
   return <Editor
           height={props.config?.fullHeight ? '100%' : 'auto'}
           options={props.config?.options}
@@ -76,4 +77,12 @@ export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneDiffEditorCo
   overviewRulerLanes: 0,
   readOnly: true,
   lineNumbers: (_: number) => ' '
+}
+
+CodeComponent.defaultProps = {
+  config: {
+    fullHeight: false,
+    options: adjustableHeightCodeOptions,
+    theme: 'light'
+  }
 }

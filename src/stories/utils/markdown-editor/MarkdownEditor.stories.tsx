@@ -15,10 +15,8 @@ type Story = DeepStoryObj<typeof meta>
 const Template = {
   args: {
     config: {
-      alignVertical: false,
-      codeConfig: undefined
+      alignVertical: false
     }
-
   },
   render: (args) => {
     return <MarkdownEditorComponent {...args}/>

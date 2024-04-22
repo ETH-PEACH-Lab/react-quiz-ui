@@ -21,10 +21,7 @@ const Template = {
         src: '## What is your opinion on functional programming?',
         type: 'markdown'
       },
-      metadata: {
-        vertical: false
-      },
-      type: 'text-response'
+      type: 'text-response-exercise'
     },
     initialAnswer: {
       exerciseId: 'text-response-id',

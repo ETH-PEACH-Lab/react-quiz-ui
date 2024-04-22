@@ -1,3 +1,5 @@
+import { resolve } from "path";
+
 export default {
   stories: ['../src/**/*.mdx', '../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
@@ -32,10 +34,8 @@ export default {
       }
     }
   ],
-
   framework: {
-    name: "@storybook/react-vite",
-    options: {}
+    name: "@storybook/react-vite"
   },
 
   docs: {

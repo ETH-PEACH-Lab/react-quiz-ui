@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { type ExerciseProps } from '../types'
-import { type ICodingAnswer, type ICodingExercise } from './types'
 import CodeComponent, { adjustableHeightCodeOptions, readonlyAdjustableHeightCodeOptions } from '../../src-object/code/CodeComponent'
 import { MarkdownComponent } from '../../src-object'
-interface ICodingComponentProps extends ExerciseProps {
-  exerciseObject: ICodingExercise
-  initialAnswer: ICodingAnswer
-  onAnswerChanges: (answer: ICodingAnswer) => void
-}
-const CodingComponent: React.FC<ICodingComponentProps> = (props: ICodingComponentProps) => {
+import { type ICodingAnswer, type ICodingExercise } from './types'
+
+const CodingComponent: React.FC<ExerciseProps<ICodingExercise, ICodingAnswer>> =
+(props: ExerciseProps<ICodingExercise, ICodingAnswer>) => {
   const [src, setSrc] = useState(props.initialAnswer.answer.src)
   const startingCode = props.exerciseObject.startingCode
   useEffect(() => {
@@ -33,5 +30,4 @@ const CodingComponent: React.FC<ICodingComponentProps> = (props: ICodingComponen
         </div>
      </>
 }
-
 export default CodingComponent

@@ -3,18 +3,14 @@ import type IMultipleChoiceItem from './types/IMultipleChoiceItem'
 import { MarkdownComponent } from '../../src-object'
 import MultipleChoiceItemComponent from './item/MultipleChoiceItemComponent'
 import useArrayShuffle from '../../../hooks/useArrayShuffle'
-import { type ExerciseProps } from '../types/ExerciseProps'
+import { type ExerciseProps } from '../types'
 import type IMultipleChoiceExercise from './types/IMultipleChoiceExercise'
 import type IMultipleChoiceAnswer from './types/IMultipleChoiceAnswer'
 
-interface IMultipleChoiceComponentProps extends ExerciseProps {
-  exerciseObject: IMultipleChoiceExercise
-  initialAnswer: IMultipleChoiceAnswer
-  onAnswerChanges: (value: IMultipleChoiceAnswer) => void
-}
-const MultipleChoiceComponent: React.FC<IMultipleChoiceComponentProps> = (props: IMultipleChoiceComponentProps) => {
+const MultipleChoiceComponent: React.FC<ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>> =
+(props: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
   const mc = props.exerciseObject
-  const [selectedItems, setItemsAnswers] = useState<string[]>(props.initialAnswer.answer ?? [])
+  const [selectedItems, setItemsAnswers] = useState<string[]>(props.initialAnswer?.answer ?? [])
 
   const items = useMemo(() => {
     return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items
