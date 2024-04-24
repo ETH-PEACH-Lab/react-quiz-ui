@@ -19,7 +19,36 @@ const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
       onCodeChange={props.onChange}></CodeComponent>
   );
   const Markdown = <MarkdownComponent src={props.src}></MarkdownComponent>;
-  return (
+  return props.config?.tabs ? (
+    <div role="tablist" className="tabs tabs-lifted">
+      <input
+        type="radio"
+        name="markdown_editor"
+        role="tab"
+        className="tab"
+        aria-label="Source"
+        checked
+      />
+      <div
+        role="tabpanel"
+        className="tab-content bg-white border-base-300 rounded-box p-6">
+        {Code}
+      </div>
+
+      <input
+        type="radio"
+        name="markdown_editor"
+        role="tab"
+        className="tab"
+        aria-label="Preview"
+      />
+      <div
+        role="tabpanel"
+        className="tab-content bg-white border-base-300 rounded-box p-6">
+        {Markdown}
+      </div>
+    </div>
+  ) : (
     <div
       className={
         'grid gap-4 ' + (props.config?.alignVertical ? '' : 'grid-cols-2')
