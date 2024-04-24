@@ -97,6 +97,13 @@ Adding a registry to be able to add and register new SrcObject components. For e
 ## Relations
 !['relations'](./assets/uml.png)
 
+## Technology
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [daisyUI](https://daisyui.com/)
+
+Further used packages can be found in the [package.json](./package.json)
 ## Discussion
 
 Should a description of an ``IExerciseObject`` consist of multiple ISrcObject. To be able to render a markdown followed by a picture? 
