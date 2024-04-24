@@ -63,7 +63,7 @@ const Template = {
     'exerciseObject.metadata.showEvaluation': {
       control: 'boolean',
       description:
-        'Will show the evalualtion, iff it is set to true and the correctAnswers array is not empty',
+        'Will show the evaluation, iff it is set to true and the correctAnswers array is not empty',
     },
     'exerciseObject.metadata.random': {
       control: 'boolean',
@@ -77,7 +77,7 @@ const Template = {
       control: 'boolean',
     },
     'exerciseObject.metadata.correctAnswers': {
-      control: 'array',
+      control: 'object',
     },
     itemsCount: {
       description: 'Storybook argument',
