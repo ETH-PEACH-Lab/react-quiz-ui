@@ -1,6 +1,6 @@
 {
   "name": "react-quiz-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI library for quizzes",
   "type": "module",
   "main": "dist/index.cjs.js",
@@ -10,7 +10,7 @@
     "/dist"
   ],
   "scripts": {
-    "prepare": "npm run build",
+    "prepare": "husky",
     "build": "tsc && vite build",
     "test": "vitest run",
     "test-watch": "vitest",

@@ -5,6 +5,5 @@ import { type ICodingMetadata } from './ICodingMetadata';
 export interface ICodingExercise extends IExerciseObject {
   startingCode?: ICode;
   metadata?: ICodingMetadata;
-  assertCode?: ICode[];
   type: 'coding-exercise';
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import type IMultipleChoiceItem from '../types/IMultipleChoiceItem';
+import type IMultipleChoiceItem from './types/IMultipleChoiceItem';
 import { MarkdownComponent } from '../../../src-object';
 import { type IMultipleChoiceItemConfig } from './types/IMultipleChoiceItemConfig';
 

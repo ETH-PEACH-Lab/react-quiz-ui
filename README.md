@@ -1,6 +1,6 @@
 # react-quiz-ui Library 
 
-Showcase: [link](https://eth-peach-lab.github.io/react-quiz-ui/?path=/docs/exercise-object-multiple-choice-multiplechoice--docs)
+:rocket: [Storybook](https://eth-peach-lab.github.io/react-quiz-ui/)
 
-## Data Types 
-![data-types](./uml.png "UML")
+## Relations
+!['relations'](./assets/uml.png)

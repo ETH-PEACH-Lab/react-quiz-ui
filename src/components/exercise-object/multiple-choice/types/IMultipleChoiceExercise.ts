@@ -1,5 +1,5 @@
 import type IExerciseObject from '../../types/IExerciseObject';
-import type IMultipleChoiceItem from './IMultipleChoiceItem';
+import type IMultipleChoiceItem from '../item/types/IMultipleChoiceItem';
 import { type IMultipleChoiceMetadata } from './IMultipleChoiceMetadata';
 
 export default interface IMultipleChoiceExercise extends IExerciseObject {

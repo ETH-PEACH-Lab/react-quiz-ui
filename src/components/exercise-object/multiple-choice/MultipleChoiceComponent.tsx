@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import type IMultipleChoiceItem from './types/IMultipleChoiceItem';
+import type IMultipleChoiceItem from './item/types/IMultipleChoiceItem';
 import { MarkdownComponent } from '../../src-object';
 import MultipleChoiceItemComponent from './item/MultipleChoiceItemComponent';
 import useArrayShuffle from '../../../hooks/useArrayShuffle';
@@ -17,7 +17,10 @@ const MultipleChoiceComponent: React.FC<
 
   const items = useMemo(() => {
     return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items;
-  }, [mc.metadata?.random, mc.items]);
+  }, [
+    props.exerciseObject.metadata?.random,
+    props.exerciseObject.items.length,
+  ]);
 
   const incorrectAnswers = useMemo(
     () =>
