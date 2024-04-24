@@ -17,6 +17,7 @@ export default [
   { 
     languageOptions: { globals: globals.browser },  
     files: ["src/**/*.{ts,tsx}"],
+    ignores:["src/**/*.spec.tsx"],
     rules:{
       "@typescript-eslint/strict-boolean-expressions": "off"
     }
