@@ -17,7 +17,10 @@ const MultipleChoiceComponent: React.FC<
 
   const items = useMemo(() => {
     return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items;
-  }, [mc.metadata?.random, mc.items]);
+  }, [
+    props.exerciseObject.metadata?.random,
+    props.exerciseObject.items.length,
+  ]);
 
   const incorrectAnswers = useMemo(
     () =>
