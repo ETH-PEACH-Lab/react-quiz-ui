@@ -23,7 +23,7 @@ const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
     <div role="tablist" className="tabs tabs-lifted">
       <input
         type="radio"
-        name="markdown_editor"
+        name="markdown_editor_tab"
         role="tab"
         className="tab"
         aria-label="Source"
@@ -37,7 +37,7 @@ const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
 
       <input
         type="radio"
-        name="markdown_editor"
+        name="markdown_editor_tab"
         role="tab"
         className="tab"
         aria-label="Preview"
