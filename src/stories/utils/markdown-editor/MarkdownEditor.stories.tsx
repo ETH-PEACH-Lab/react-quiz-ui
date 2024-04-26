@@ -1,6 +1,6 @@
 import { type Meta } from '@storybook/react';
 import React from 'react';
-import MarkdownEditorComponent from '../../../components/common/markdown-editor/MarkdownEditorComponent';
+import { MarkdownEditorComponent } from '../../../components/common/markdown-editor/MarkdownEditorComponent';
 import { type DeepStoryObj } from '../../StoryObj';
 
 type MarkdownEditorComponentPropsAndCustomArgs = React.ComponentProps<

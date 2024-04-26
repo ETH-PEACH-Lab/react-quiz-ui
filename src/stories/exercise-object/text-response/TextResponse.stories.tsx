@@ -1,5 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react';
-import TextResponseComponent from '../../../components/exercise-object/text-response/TextResponseComponent';
+import { TextResponseComponent } from '../../../components/exercise-object/text-response/TextResponseComponent';
 import React from 'react';
 import { fn } from '@storybook/test';
 

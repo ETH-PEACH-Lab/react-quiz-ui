@@ -1,5 +1,5 @@
 import { type Meta } from '@storybook/react';
-import CodingComponent from '../../../components/exercise-object/coding/CodingComponent';
+import { CodingComponent } from '../../../components/exercise-object/coding/CodingComponent';
 import { type DeepStoryObj } from '../../StoryObj';
 import { fn } from '@storybook/test';
 import React from 'react';

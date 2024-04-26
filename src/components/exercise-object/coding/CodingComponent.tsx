@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { type ExerciseProps } from '../types';
-import CodeComponent, {
+import {
+  CodeComponent,
   adjustableHeightCodeOptions,
   readonlyAdjustableHeightCodeOptions,
 } from '../../src-object/code/CodeComponent';
 import { MarkdownComponent } from '../../src-object';
 import { type ICodingAnswer, type ICodingExercise } from './types';
 
-const CodingComponent: React.FC<
+export const CodingComponent: React.FC<
   ExerciseProps<ICodingExercise, ICodingAnswer>
 > = (props: ExerciseProps<ICodingExercise, ICodingAnswer>) => {
   const [src, setSrc] = useState(props.initialAnswer.answer.src);
@@ -45,4 +46,3 @@ const CodingComponent: React.FC<
     </>
   );
 };
-export default CodingComponent;

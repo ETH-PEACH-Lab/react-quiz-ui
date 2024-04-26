@@ -9,7 +9,7 @@ interface CodeComponentProps {
   onCodeChange?: (value: string) => void;
   config?: ICodeConfig;
 }
-const CodeComponent: React.FC<CodeComponentProps> = (
+export const CodeComponent: React.FC<CodeComponentProps> = (
   props: CodeComponentProps,
 ) => {
   const onCodeChange: (value: string | undefined) => void = (
@@ -58,8 +58,6 @@ const CodeComponent: React.FC<CodeComponentProps> = (
     />
   );
 };
-
-export default CodeComponent;
 
 export const adjustableHeightCodeOptions: editor.IStandaloneDiffEditorConstructionOptions =
   {

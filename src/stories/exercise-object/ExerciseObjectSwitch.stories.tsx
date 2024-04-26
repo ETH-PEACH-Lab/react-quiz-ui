@@ -1,5 +1,5 @@
 import { type Meta } from '@storybook/react';
-import ExerciseObjectSwitch from '../../components/exercise-object/ExerciseObjectSwitch';
+import { ExerciseObjectSwitch } from '../../components/exercise-object/ExerciseObjectSwitch';
 import { type DeepStoryObj } from '../StoryObj';
 import { fn } from '@storybook/test';
 import React from 'react';

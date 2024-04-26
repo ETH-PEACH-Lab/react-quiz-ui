@@ -1,5 +1,6 @@
 import { type Meta } from '@storybook/react';
-import CodeComponent, {
+import {
+  CodeComponent,
   adjustableHeightCodeOptions,
 } from '../../../../components/src-object/code/CodeComponent';
 import { type DeepStoryObj } from '../../../StoryObj';

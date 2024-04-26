@@ -7,7 +7,7 @@ import { type ExerciseProps } from '../types';
 import type IMultipleChoiceExercise from './types/IMultipleChoiceExercise';
 import type IMultipleChoiceAnswer from './types/IMultipleChoiceAnswer';
 
-const MultipleChoiceComponent: React.FC<
+export const MultipleChoiceComponent: React.FC<
   ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>
 > = (props: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
   const mc = props.exerciseObject;
@@ -91,4 +91,3 @@ MultipleChoiceComponent.defaultProps = {
     answer: [],
   },
 };
-export default MultipleChoiceComponent;
