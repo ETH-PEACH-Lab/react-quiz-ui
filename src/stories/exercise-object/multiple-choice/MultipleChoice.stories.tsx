@@ -1,6 +1,6 @@
 import React from 'react';
 import { type Meta } from '@storybook/react';
-import MultipleChoiceComponent from '../../../components/exercise-object/multiple-choice/MultipleChoiceComponent';
+import { MultipleChoiceComponent } from '../../../components/exercise-object/multiple-choice/MultipleChoiceComponent';
 import { fn } from '@storybook/test';
 import type IMultipleChoiceItem from '../../../components/exercise-object/multiple-choice/item/types/IMultipleChoiceItem';
 import { type DeepStoryObj } from '../../StoryObj';

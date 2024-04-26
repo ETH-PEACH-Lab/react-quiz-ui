@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import MarkdownEditorComponent from '../MarkdownEditorComponent';
+import { MarkdownEditorComponent } from '../MarkdownEditorComponent';
 
 describe('MarkdownEditor test', () => {
   test('Should show title', () => {

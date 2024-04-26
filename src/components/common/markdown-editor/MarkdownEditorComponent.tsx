@@ -1,14 +1,14 @@
 import React from 'react';
 import { MarkdownComponent } from '../../src-object';
 import { type IMarkdownEditorConfig } from './types';
-import CodeComponent from '../../src-object/code/CodeComponent';
+import { CodeComponent } from '../../src-object/code/CodeComponent';
 
 interface MarkdownEditorComponentProps {
   src: string;
   config?: IMarkdownEditorConfig;
   onChange: (value: string) => void;
 }
-const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
+export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
   props: MarkdownEditorComponentProps,
 ) => {
   const Code = (
@@ -63,4 +63,3 @@ MarkdownEditorComponent.defaultProps = {
     alignVertical: false,
   },
 };
-export default MarkdownEditorComponent;
