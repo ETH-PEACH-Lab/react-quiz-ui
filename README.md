@@ -1,4 +1,4 @@
-# React Quiz UI Library 
+# React Quiz UI Library (WIP)
 This library offers several quiz react components. To see them in action visit the Storybook:
 [Storybook](https://eth-peach-lab.github.io/react-quiz-ui/)
 
