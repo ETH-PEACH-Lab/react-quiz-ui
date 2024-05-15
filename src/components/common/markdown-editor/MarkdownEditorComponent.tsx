@@ -1,7 +1,7 @@
 import React from 'react';
-import { MarkdownComponent } from '../../src-object';
+import { MarkdownComponent } from '../../src-elements';
 import { type IMarkdownEditorConfig } from './types';
-import { CodeComponent } from '../../src-object/code/CodeComponent';
+import { CodeComponent } from '../../src-elements/code/CodeComponent';
 
 interface MarkdownEditorComponentProps {
   src: string;
