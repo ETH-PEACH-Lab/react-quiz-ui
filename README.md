@@ -88,7 +88,7 @@ Provides a monaco code editor with language highlighting.
 [Storybook Reference](https://eth-peach-lab.github.io/react-quiz-ui/?path=/docs/src-elements-code-object-code--docs)
 
 ### ISrcObject
-This Interface consists of a ``src`` property which is rendered based on the implementation of the component, a ``type`` to leverage a component switch.
+This Interface consists of a ``src`` property which is rendered based on the implementation of the component
 
 
 ### Todo:

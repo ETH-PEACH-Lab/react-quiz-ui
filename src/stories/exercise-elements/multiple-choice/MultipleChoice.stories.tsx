@@ -37,7 +37,6 @@ const Template = {
       return {
         id: 'mc-item-' + n,
         src: 'Multiple Choice Item ' + n,
-        type: 'markdown',
       };
     });
     delete (args as Partial<MultipleChoiceComponentPropsAndCustomArgs>)
