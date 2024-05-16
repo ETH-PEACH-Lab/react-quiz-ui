@@ -20,7 +20,6 @@ const Template = {
     initialAnswer: {
       answer: {
         src: '',
-        type: 'markdown',
       },
     },
     onAnswerChanges: fn(),
@@ -43,7 +42,6 @@ export const Secondary: Story = {
     initialAnswer: {
       answer: {
         src: 'I love currying',
-        type: 'markdown',
       },
     },
   },

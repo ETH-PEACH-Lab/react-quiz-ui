@@ -1,6 +1,3 @@
-import { type ITypedObject } from '../../../types';
-
-export interface ISrcObject extends ITypedObject {
-  type: string;
+export interface ISrcObject {
   src: string;
 }

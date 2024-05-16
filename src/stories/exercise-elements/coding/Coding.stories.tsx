@@ -22,14 +22,12 @@ const Template = {
       startingCode: {
         src: 'def factorial(n):\r\n    """\r\n    Calculate the factorial of a non-negative integer n.\r\n    """',
         language: 'python',
-        type: 'code',
       },
     },
     initialAnswer: {
       referenceId: 'referenceId',
       answer: {
         src: '',
-        type: 'code',
         language: 'python',
       },
     },
@@ -55,7 +53,6 @@ export const Secondary: Story = {
       answer: {
         src: '    if n == 0:\r\n        return 1\r\n    else:\r\n        return n * factorial(n - 1)',
         language: 'python',
-        type: 'code',
       },
     },
   },
@@ -75,7 +72,6 @@ export const Third: Story = {
       answer: {
         src: 'print("Hello World")',
         language: 'python',
-        type: 'code',
       },
     },
   },
