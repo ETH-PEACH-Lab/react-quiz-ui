@@ -23,7 +23,7 @@ export const CodingComponent: React.FC<
   return (
     <>
       <div className="mt-4">
-        {startingCode && (
+        {startingCode && startingCode.src !== '' && (
           <CodeComponent
             language={startingCode.language}
             src={startingCode.src}

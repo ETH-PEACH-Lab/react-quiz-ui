@@ -1,8 +1,8 @@
-import { type ICode } from '../../../src-elements';
+import { type ICodeObject } from '../../../src-elements';
 import type IExerciseObject from '../../types/IExerciseObject';
 import { type ICodingMetadata } from './ICodingMetadata';
 
 export interface ICodingExercise extends IExerciseObject {
-  startingCode?: ICode;
+  startingCode?: ICodeObject;
   metadata?: ICodingMetadata;
 }
