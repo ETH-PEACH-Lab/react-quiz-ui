@@ -1,5 +1,3 @@
-import { type IObject } from './IObject';
-
-export interface ITypedObject extends IObject {
+export interface ITypedObject {
   type: string;
 }

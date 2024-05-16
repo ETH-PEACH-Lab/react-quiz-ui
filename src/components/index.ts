@@ -1,3 +1,3 @@
 export * from './common';
-export * from './exercise-object';
-export * from './src-object';
+export * from './exercise-elements';
+export * from './src-elements';
