@@ -9,7 +9,7 @@ interface MultipleChoiceItemComponentProps {
   config: IMultipleChoiceItemConfig;
   onChange: (id: string, checked: boolean) => void;
 }
-const MultipleChoiceItemComponent: React.FC<
+export const MultipleChoiceItemComponent: React.FC<
   MultipleChoiceItemComponentProps
 > = (props: MultipleChoiceItemComponentProps) => {
   return (
@@ -52,5 +52,3 @@ const MultipleChoiceItemComponent: React.FC<
     </div>
   );
 };
-
-export default MultipleChoiceItemComponent;

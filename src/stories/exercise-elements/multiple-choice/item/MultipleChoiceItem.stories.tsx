@@ -1,6 +1,6 @@
 import React from 'react';
 import { type Meta, type StoryObj } from '@storybook/react';
-import MultipleChoiceItemComponent from '../../../../components/exercise-elements/multiple-choice/item/MultipleChoiceItemComponent';
+import { MultipleChoiceItemComponent } from '../../../../components/exercise-elements/multiple-choice/item/MultipleChoiceItemComponent';
 import { fn } from '@storybook/test';
 import { type IMultipleChoiceItem } from '../../../../components';
 

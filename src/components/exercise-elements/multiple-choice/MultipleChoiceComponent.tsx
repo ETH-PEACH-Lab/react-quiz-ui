@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import MultipleChoiceItemComponent from './item/MultipleChoiceItemComponent';
+import { MultipleChoiceItemComponent } from './item/MultipleChoiceItemComponent';
 import useArrayShuffle from '../../../hooks/useArrayShuffle';
 import { type ExerciseProps } from '../types';
 import type { IMultipleChoiceExercise } from './types/IMultipleChoiceExercise';

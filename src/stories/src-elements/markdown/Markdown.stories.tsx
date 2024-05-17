@@ -20,3 +20,9 @@ export const Secondary: Story = {
     src: 'Hello' + '\nWorld\n' + '...',
   },
 };
+export const Third: Story = {
+  name: 'Simple math',
+  args: {
+    src: '$a*x^2+b*x+c = 0$',
+  },
+};
