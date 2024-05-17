@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { MarkdownComponent } from '../../src-elements';
 import { type IMarkdownEditorConfig } from './types';
 import { CodeComponent } from '../../src-elements/code/CodeComponent';
@@ -11,6 +11,7 @@ interface MarkdownEditorComponentProps {
 export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
   props: MarkdownEditorComponentProps,
 ) => {
+  const id = useId();
   const Code = (
     <CodeComponent
       language="markdown"
@@ -20,31 +21,27 @@ export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
   );
   const Markdown = <MarkdownComponent src={props.src}></MarkdownComponent>;
   return props.config?.tabs ? (
-    <div role="tablist" className="tabs tabs-lifted">
+    <div role="tablist" className="tabs tabs-bordered">
       <input
         type="radio"
-        name="markdown_editor_tab"
+        name={id}
         role="tab"
         className="tab"
         aria-label="Source"
-        checked
+        checked={true}
       />
-      <div
-        role="tabpanel"
-        className="tab-content bg-white border-base-300 rounded-box p-6">
+      <div role="tabpanel" className="tab-content bg-white rounded-box p-6">
         {Code}
       </div>
 
       <input
         type="radio"
-        name="markdown_editor_tab"
+        name={id}
         role="tab"
         className="tab"
         aria-label="Preview"
       />
-      <div
-        role="tabpanel"
-        className="tab-content bg-white border-base-300 rounded-box p-6">
+      <div role="tabpanel" className="tab-content bg-white rounded-box p-6">
         {Markdown}
       </div>
     </div>

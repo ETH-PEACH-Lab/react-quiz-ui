@@ -31,9 +31,6 @@ const Template = {
     'config.codeOptions': {
       control: false,
     },
-    'config.tabs': {
-      control: false,
-    },
   },
 } satisfies Story;
 export const Primary: Story = {
