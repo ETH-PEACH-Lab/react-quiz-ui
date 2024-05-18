@@ -11,8 +11,8 @@ export const MarkdownComponent: React.FC<MarkdownComponentProps> = (
 ) => {
   return (
     <Markdown
-      remarkPlugins={props.config?.remarkPlugins}
-      rehypePlugins={props.config?.rehypePlugins}
+      remarkPlugins={props.config?.remarkPlugins ?? []}
+      rehypePlugins={props.config?.rehypePlugins ?? []}
       className={'whitespace-pre-wrap'}>
       {props.src}
     </Markdown>
