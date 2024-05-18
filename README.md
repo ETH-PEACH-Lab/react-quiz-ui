@@ -2,12 +2,20 @@
 This library offers several quiz react components. To see them in action visit the Storybook:
 [Storybook](https://eth-peach-lab.github.io/react-quiz-ui/)
 
+## Installation
+```
+npm install -S react-quiz-ui
+```
+
 ## Setup 
 
-Add the following line to your root ".css" file:
-
-```css
-@import url('../node_modules/react-quiz-ui/dist/style.css');
+Adapt your tailwind.config.js as follows to have the necessary css included:  
+```
+module.exports = {
+    ...
+    content: ['...',./node_modules/react-quiz-ui/src/**/*.{js,jsx,ts,tsx}'],
+    ...
+  }
 ```
 
 ## Exercise elements
@@ -90,10 +98,6 @@ Provides a monaco code editor with language highlighting.
 ### ISrcObject
 This Interface consists of a ``src`` property which is rendered based on the implementation of the component
 
-
-### Todo:
-Adding a registry to be able to add and register new SrcObject components.
-
 ## Relations
 !['relations'](./assets/uml.png)
 
@@ -103,8 +107,4 @@ Adding a registry to be able to add and register new SrcObject components.
 - [Tailwind CSS](https://tailwindcss.com/)
 - [daisyUI](https://daisyui.com/)
 
-Further used packages can be found in the [package.json](./package.json)
-## Discussion
-
-- Should there exists a question component that can render multiple src elements? For example: A picture followed by a description?
-- 
+Further packages can be found in the [package.json](./package.json)
