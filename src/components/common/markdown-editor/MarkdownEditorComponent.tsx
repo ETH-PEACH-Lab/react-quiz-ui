@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 import { MarkdownComponent } from '../../src-elements';
 import { type IMarkdownEditorConfig } from './types';
 import { CodeComponent } from '../../src-elements/code/CodeComponent';
@@ -11,6 +11,7 @@ interface MarkdownEditorComponentProps {
 export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
   props: MarkdownEditorComponentProps,
 ) => {
+  const [activeTab, setActiveTab] = useState('code');
   const id = useId();
   const Code = (
     <CodeComponent
@@ -26,9 +27,11 @@ export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
         type="radio"
         name={id}
         role="tab"
-        className="tab"
-        aria-label="Source"
-        checked={true}
+        className={'tab ' + (activeTab === 'code' ? 'tab-active' : '')}
+        aria-label="Plain"
+        onClick={() => {
+          setActiveTab('code');
+        }}
       />
       <div role="tabpanel" className="tab-content bg-white rounded-box p-6">
         {Code}
@@ -38,8 +41,11 @@ export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
         type="radio"
         name={id}
         role="tab"
-        className="tab"
-        aria-label="Preview"
+        className={'tab ' + (activeTab === 'markdown' ? 'tab-active' : '')}
+        onClick={() => {
+          setActiveTab('markdown');
+        }}
+        aria-label="Markdown"
       />
       <div role="tabpanel" className="tab-content bg-white rounded-box p-6">
         {Markdown}

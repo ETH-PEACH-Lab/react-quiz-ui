@@ -44,7 +44,6 @@ export const CodeComponent: React.FC<CodeComponentProps> = (
 
     editorElement.style.height = `${height}px`;
     editorElement.style.width = '100%';
-
     editor.layout({
       width: editorElement.getBoundingClientRect().width,
       height,
