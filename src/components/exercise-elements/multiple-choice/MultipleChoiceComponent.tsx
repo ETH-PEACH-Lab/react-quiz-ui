@@ -76,6 +76,7 @@ export const MultipleChoiceComponent: React.FC<
         incorrect: isIncorrect(item),
         disabled: mc.metadata?.disabled,
         defaultChecked: selectedItems.includes(item.id),
+        markdownConfig: mc.metadata?.markdownConfig,
       }}
     />
   ));

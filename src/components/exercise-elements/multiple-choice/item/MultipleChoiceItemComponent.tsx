@@ -15,7 +15,10 @@ export const MultipleChoiceItemComponent: React.FC<
   return (
     <div className="form-control">
       <label className="cursor-pointer label">
-        <MarkdownComponent {...props.item} />
+        <MarkdownComponent
+          {...props.item}
+          config={props.config.markdownConfig}
+        />
         <div className="ml-4 my-auto flex">
           {props.config.multi && (
             <input
