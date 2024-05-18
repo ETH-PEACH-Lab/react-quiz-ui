@@ -1,10 +1,9 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import rehypeMathjax from 'rehype-mathjax';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
+import { type IMarkdownConfig } from './types/IMarkdownConfig';
 
 interface MarkdownComponentProps {
+  config?: IMarkdownConfig;
   src: string;
 }
 export const MarkdownComponent: React.FC<MarkdownComponentProps> = (
@@ -12,8 +11,8 @@ export const MarkdownComponent: React.FC<MarkdownComponentProps> = (
 ) => {
   return (
     <Markdown
-      remarkPlugins={[remarkMath, [remarkGfm, { singleTilde: false }]]}
-      rehypePlugins={[rehypeMathjax]}
+      remarkPlugins={props.config?.remarkPlugins}
+      rehypePlugins={props.config?.rehypePlugins}
       className={'whitespace-pre-wrap'}>
       {props.src}
     </Markdown>
