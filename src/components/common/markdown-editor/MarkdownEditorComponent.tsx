@@ -20,7 +20,11 @@ export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
       config={props.config?.codeConfig}
       onCodeChange={props.onChange}></CodeComponent>
   );
-  const Markdown = <MarkdownComponent src={props.src}></MarkdownComponent>;
+  const Markdown = (
+    <MarkdownComponent
+      src={props.src}
+      config={props.config?.markdownConfig}></MarkdownComponent>
+  );
   return props.config?.tabs ? (
     <div role="tablist" className="tabs tabs-bordered">
       <input
