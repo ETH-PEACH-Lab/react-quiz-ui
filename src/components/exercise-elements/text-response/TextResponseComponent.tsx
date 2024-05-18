@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { type ExerciseProps } from '../types/ExerciseProps';
 import { MarkdownEditorComponent } from '../../common/markdown-editor/MarkdownEditorComponent';
-import type ITextResponseExercise from './types/ITextResponseExercise';
-import type ITextResponseAnswer from './types/ITextResponseAnswer';
+import { type ITextResponseAnswer, type ITextResponseExercise } from './types';
 
 export const TextResponseComponent: React.FC<
   ExerciseProps<ITextResponseExercise, ITextResponseAnswer>
