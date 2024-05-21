@@ -1,4 +1,5 @@
 import { type IMarkdownConfig } from '../../../../src-elements/markdown/types';
+import { type IMultipleChoiceItemColoring } from './IMultipleChoiceItemColoring';
 
 export interface IMultipleChoiceItemConfig {
   multi?: boolean;
@@ -6,4 +7,5 @@ export interface IMultipleChoiceItemConfig {
   disabled?: boolean;
   defaultChecked?: boolean;
   markdownConfig?: IMarkdownConfig;
+  coloring?: IMultipleChoiceItemColoring;
 }

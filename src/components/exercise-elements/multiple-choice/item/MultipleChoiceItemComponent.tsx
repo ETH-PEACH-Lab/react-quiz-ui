@@ -26,7 +26,9 @@ export const MultipleChoiceItemComponent: React.FC<
               disabled={props.config.disabled}
               className={
                 'checkbox checkbox-sm ' +
-                (!props.config.incorrect ? 'checkbox-accent' : 'checkbox-error')
+                (!props.config.incorrect
+                  ? props.config.coloring?.colorSelectedCheckbox
+                  : 'checkbox-error')
               }
               onChange={(event) => {
                 props.onChange(props.item.id, event.target.checked);
@@ -42,7 +44,9 @@ export const MultipleChoiceItemComponent: React.FC<
               name={props.parentId}
               className={
                 'radio radio-sm ' +
-                (!props.config.incorrect ? 'radio-accent' : 'radio-error')
+                (!props.config.incorrect
+                  ? props.config?.coloring?.colorSelectedRadio
+                  : 'radio-error')
               }
               onChange={(event) => {
                 props.onChange(props.item.id, event.target.checked);

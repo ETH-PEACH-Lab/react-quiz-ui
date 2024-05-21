@@ -77,6 +77,7 @@ export const MultipleChoiceComponent: React.FC<
         disabled: mc.metadata?.disabled,
         defaultChecked: selectedItems.includes(item.id),
         markdownConfig: mc.metadata?.markdownConfig,
+        coloring: mc.metadata?.multipleChoiceItemColoring,
       }}
     />
   ));
