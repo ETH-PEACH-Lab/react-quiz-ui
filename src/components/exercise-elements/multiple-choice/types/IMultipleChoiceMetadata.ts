@@ -1,4 +1,5 @@
 import { type IMarkdownConfig } from '../../../src-elements';
+import { type IMultipleChoiceItemColoring } from '../item';
 
 export interface IMultipleChoiceMetadata {
   correctAnswers?: string[];
@@ -7,4 +8,5 @@ export interface IMultipleChoiceMetadata {
   random?: boolean;
   disabled?: boolean;
   markdownConfig?: IMarkdownConfig;
+  multipleChoiceItemColoring?: IMultipleChoiceItemColoring;
 }
