@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useId, useMemo, useState } from 'react';
 import { MultipleChoiceItemComponent } from './item/MultipleChoiceItemComponent';
 import useArrayShuffle from '../../../hooks/useArrayShuffle';
 import { type ExerciseProps } from '../types';
@@ -9,6 +9,7 @@ import { type IMultipleChoiceItem } from './item';
 export const MultipleChoiceComponent: React.FC<
   ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>
 > = (props: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
+  const internalId = useId();
   const mc = props.exerciseObject;
   const [selectedItems, setItemsAnswers] = useState<string[]>(
     props.initialAnswer?.answer ?? [],
@@ -68,8 +69,8 @@ export const MultipleChoiceComponent: React.FC<
   const itemComponents = items.map((item) => (
     <MultipleChoiceItemComponent
       onChange={onMultipleChoiceItemChange}
-      key={item.id}
-      parentId={'mc'}
+      key={internalId + '_' + item.id}
+      parentId={internalId}
       item={item}
       config={{
         multi: mc.metadata?.multi,
