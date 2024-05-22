@@ -4,6 +4,7 @@ import {
   adjustableHeightCodeOptions,
 } from '../../../../components/src-elements/code/CodeComponent';
 import { type DeepStoryObj } from '../../../StoryObj';
+import { fn } from '@storybook/test';
 /**
  * Wrapper for Monaco Code editor. Uses the adjustableHeightCodeOptions in these examples.
  */
@@ -21,6 +22,7 @@ export const Primary: Story = {
     config: {
       options: adjustableHeightCodeOptions,
     },
+    onCodeChange: fn(),
   },
   argTypes: {
     'config.options': {
