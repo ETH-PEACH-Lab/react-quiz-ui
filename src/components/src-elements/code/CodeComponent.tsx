@@ -75,7 +75,9 @@ export const adjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOp
     wordWrap: 'on',
     minimap: { enabled: false },
     scrollBeyondLastLine: false,
+    readOnly: false,
     overviewRulerLanes: 0,
+    lineNumbers: 'on',
   };
 export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOptions =
   {

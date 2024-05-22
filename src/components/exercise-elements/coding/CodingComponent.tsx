@@ -43,7 +43,11 @@ export const CodingComponent: React.FC<
               answer: { ...props.initialAnswer.answer, src: value },
             });
           }}
-          config={{ options: adjustableHeightCodeOptions }}></CodeComponent>
+          config={
+            props.exerciseObject.metadata?.answerCodeConfig ?? {
+              options: adjustableHeightCodeOptions,
+            }
+          }></CodeComponent>
       </div>
     </>
   );
