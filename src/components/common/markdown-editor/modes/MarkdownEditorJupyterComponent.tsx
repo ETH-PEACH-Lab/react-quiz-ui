@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { type MarkdownEditorComponentProps } from '../MarkdownEditorComponent';
 import { CodeComponent, MarkdownComponent } from '../../../src-elements';
-import { KeyCode, KeyMod } from 'monaco-editor';
 
 export const MarkdownEditorJupyterComponent: React.FC<
   MarkdownEditorComponentProps
@@ -12,7 +11,6 @@ export const MarkdownEditorJupyterComponent: React.FC<
   const blockContext =
     'editorTextFocus && !suggestWidgetVisible && !renameInputVisible && !inSnippetMode ' +
     '&& !quickFixWidgetVisible';
-
   const code = (
     <CodeComponent
       language="markdown"
@@ -24,7 +22,7 @@ export const MarkdownEditorJupyterComponent: React.FC<
           {
             id: 'enterAndRenderMarkdown',
             label: 'Enter and Render Markdown',
-            keybindings: [KeyMod.CtrlCmd | KeyCode.Enter],
+            keybindings: [2048 | 3],
             contextMenuGroupId: '2_execution',
             precondition: blockContext,
             run: () => {
