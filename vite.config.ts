@@ -21,6 +21,13 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './setupTests.ts',
+    alias: [
+      {
+        find: /^monaco-editor$/,
+        replacement:
+          __dirname + '/node_modules/monaco-editor/esm/vs/editor/editor.api',
+      },
+    ],
   },
   plugins: [dts()], // Uses the 'vite-plugin-dts' plugin for generating TypeScript declaration files (d.ts).
 });
