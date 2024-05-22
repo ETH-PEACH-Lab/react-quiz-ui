@@ -7,6 +7,7 @@ interface CodeComponentProps {
   src: string;
   language: string;
   onCodeChange?: (value: string) => void;
+  focused?: boolean;
   config?: ICodeConfig;
 }
 export const CodeComponent: React.FC<CodeComponentProps> = (
@@ -27,6 +28,14 @@ export const CodeComponent: React.FC<CodeComponentProps> = (
         updateEditorHeight(editor);
       });
       updateEditorHeight(editor);
+    }
+    if (props.config?.actions) {
+      props.config.actions.forEach((action) => {
+        editor.addAction(action);
+      });
+    }
+    if (props.focused) {
+      editor.focus();
     }
   };
   const updateEditorHeight: (editor: editor.IStandaloneCodeEditor) => void = (
@@ -49,17 +58,18 @@ export const CodeComponent: React.FC<CodeComponentProps> = (
       height,
     });
   };
-
   return (
-    <Editor
-      height={props.config?.fullHeight ? '100%' : 'auto'}
-      options={props.config?.options}
-      theme={props.config?.theme}
-      value={props.src}
-      language={props.language}
-      onChange={onCodeChange}
-      onMount={onEditorMount}
-    />
+    <div className="grid grid-cols-1">
+      <Editor
+        height={props.config?.fullHeight ? '100%' : 'auto'}
+        options={props.config?.options ?? adjustableHeightCodeOptions}
+        theme={props.config?.theme}
+        value={props.src}
+        language={props.language}
+        onChange={onCodeChange}
+        onMount={onEditorMount}
+      />
+    </div>
   );
 };
 
@@ -101,5 +111,6 @@ CodeComponent.defaultProps = {
     fullHeight: false,
     options: adjustableHeightCodeOptions,
     theme: 'light',
+    actions: [],
   },
 };

@@ -2,6 +2,7 @@ import { type Meta } from '@storybook/react';
 import React from 'react';
 import { MarkdownEditorComponent } from '../../../components/common/markdown-editor/MarkdownEditorComponent';
 import { type DeepStoryObj } from '../../StoryObj';
+import { fn } from '@storybook/test';
 
 type MarkdownEditorComponentPropsAndCustomArgs = React.ComponentProps<
   typeof MarkdownEditorComponent
@@ -22,7 +23,9 @@ const Template = {
     config: {
       alignVertical: false,
       tabs: false,
+      jupyter: false,
     },
+    onChange: fn(),
   },
   render: (args) => {
     return <MarkdownEditorComponent {...args} />;
@@ -50,6 +53,18 @@ export const Secondary: Story = {
     ...Template.args,
     config: {
       tabs: true,
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
+export const Third: Story = {
+  name: 'Jupyter example',
+  args: {
+    src: '## What is your option about react?',
+    ...Template.args,
+    config: {
+      jupyter: true,
     },
   },
   argTypes: Template.argTypes,
