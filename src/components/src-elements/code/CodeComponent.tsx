@@ -47,7 +47,7 @@ export const CodeComponent: React.FC<CodeComponentProps> = (
       return;
     }
 
-    const lineHeight = 19;
+    const lineHeight = 23;
     const lineCount = editor.getModel()?.getLineCount() ?? 1;
     const height = editor.getTopForLineNumber(lineCount + 1) + lineHeight;
 

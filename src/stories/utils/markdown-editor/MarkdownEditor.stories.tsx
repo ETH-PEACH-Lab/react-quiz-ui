@@ -70,3 +70,16 @@ export const Third: Story = {
   argTypes: Template.argTypes,
   render: Template.render,
 };
+
+export const Forth: Story = {
+  name: 'Jupyter example: empty text',
+  args: {
+    src: '',
+    ...Template.args,
+    config: {
+      jupyter: true,
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};

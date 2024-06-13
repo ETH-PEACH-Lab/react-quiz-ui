@@ -16,7 +16,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 const Template = {
   args: {
-    exerciseObject: {},
+    exerciseObject: {
+      metadata: {
+        showSolution: false,
+      },
+      solution: 'Currying is awesome',
+    },
     initialAnswer: {
       answer: {
         src: '',
@@ -36,9 +41,28 @@ export const Primary: Story = {
   render: Template.render,
 };
 export const Secondary: Story = {
-  name: 'With inital value',
+  name: 'With initial value',
   args: {
     ...Template.args,
+    initialAnswer: {
+      answer: {
+        src: 'I love currying',
+      },
+    },
+  },
+
+  render: Template.render,
+};
+export const Third: Story = {
+  name: 'With solution',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      solution: 'Currying is awesome',
+      metadata: {
+        showSolution: true,
+      },
+    },
     initialAnswer: {
       answer: {
         src: 'I love currying',
