@@ -27,10 +27,12 @@ export const MultipleChoiceComponent: React.FC<
 
   const incorrectAnswers = useMemo(
     () =>
-      selectedItems.filter(
-        (item) => !mc.metadata?.correctAnswers?.includes(item),
-      ),
-    [mc.metadata?.correctAnswers, selectedItems],
+      selectedItems
+        .filter((item) => !mc.correctAnswers.includes(item))
+        .concat(
+          mc.correctAnswers.filter((item) => !selectedItems.includes(item)),
+        ),
+    [mc.correctAnswers, selectedItems],
   );
 
   useEffect(() => {
@@ -55,15 +57,7 @@ export const MultipleChoiceComponent: React.FC<
   const isIncorrect: (item: IMultipleChoiceItem) => boolean = (
     item: IMultipleChoiceItem,
   ) => {
-    const showResult =
-      (mc.metadata?.showEvaluation &&
-        mc.metadata.correctAnswers &&
-        mc.metadata.correctAnswers.length > 0) ??
-      false;
-    if (!mc.metadata?.multi) {
-      return showResult && incorrectAnswers.length > 0;
-    }
-    return showResult && incorrectAnswers.includes(item.id);
+    return mc.correctAnswers.length > 0 && incorrectAnswers.includes(item.id);
   };
 
   const itemComponents = items.map((item) => (
@@ -76,9 +70,11 @@ export const MultipleChoiceComponent: React.FC<
         multi: mc.metadata?.multi,
         incorrect: isIncorrect(item),
         disabled: mc.metadata?.disabled,
-        defaultChecked: selectedItems.includes(item.id),
+        checked: selectedItems.includes(item.id),
         markdownConfig: mc.metadata?.markdownConfig,
         coloring: mc.metadata?.multipleChoiceItemColoring,
+        showEvaluation: mc.metadata?.showEvaluation,
+        showIndicator: mc.metadata?.showIndicator,
       }}
     />
   ));

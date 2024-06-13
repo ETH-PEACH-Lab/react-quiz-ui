@@ -40,6 +40,8 @@ export const First: Story = {
   args: {
     config: {
       multi: false,
+      showEvaluation: false,
+      incorrect: false,
     },
     descriptionText: 'Multiple Choice Item',
     parentId: 'mcq-id',
@@ -59,12 +61,45 @@ export const Second: Story = {
   },
   ...Template,
 };
-export const Thrid: Story = {
+export const Third: Story = {
   name: 'Checked checkbox Button',
   args: {
     config: {
       multi: true,
-      defaultChecked: true,
+      checked: true,
+    },
+
+    descriptionText: 'Multiple Choice Item',
+    parentId: 'mcq-id',
+    onChange: fn(),
+  },
+  ...Template,
+};
+
+export const Forth: Story = {
+  name: 'Checked incorrect checkbox Button',
+  args: {
+    config: {
+      multi: true,
+      checked: true,
+      incorrect: true,
+      showEvaluation: true,
+    },
+
+    descriptionText: 'Multiple Choice Item',
+    parentId: 'mcq-id',
+    onChange: fn(),
+  },
+  ...Template,
+};
+export const Fifth: Story = {
+  name: 'Checked incorrect checkbox Button',
+  args: {
+    config: {
+      multi: true,
+      checked: true,
+      incorrect: false,
+      showEvaluation: true,
     },
 
     descriptionText: 'Multiple Choice Item',

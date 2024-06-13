@@ -5,7 +5,7 @@ import { CodeComponent, MarkdownComponent } from '../../../src-elements';
 export const MarkdownEditorJupyterComponent: React.FC<
   MarkdownEditorComponentProps
 > = (props: MarkdownEditorComponentProps) => {
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(!props.src.trim().length);
   const actions = props.config?.codeConfig?.actions ?? [];
 
   const blockContext =
@@ -25,8 +25,10 @@ export const MarkdownEditorJupyterComponent: React.FC<
             keybindings: [2048 | 3],
             contextMenuGroupId: '2_execution',
             precondition: blockContext,
-            run: () => {
-              setEditing(false);
+            run: (editor) => {
+              if (editor.getValue().trim().length > 0) {
+                setEditing(false);
+              }
             },
           },
         ],
@@ -48,11 +50,11 @@ export const MarkdownEditorJupyterComponent: React.FC<
       {markdown}
     </div>
   ) : (
-    <>
+    <div className="relative">
       {code}
-      <span className="absolute right-[10px] top-0 text-xs mt-[-7px]">
+      <span className="absolute right-0 top-0 text-xs mt-[-16px] ">
         CMD / CTRL + Enter
       </span>
-    </>
+    </div>
   );
 };

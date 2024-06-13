@@ -20,11 +20,12 @@ const Template = {
   args: {
     exerciseObject: {
       items: [],
+      correctAnswers: ['mc-item-0'],
       metadata: {
         showEvaluation: false,
         disabled: false,
         random: false,
-        correctAnswers: ['mc-item-0'],
+        showIndicator: false,
       },
     },
     itemsCount: 3,
@@ -67,6 +68,10 @@ const Template = {
     },
     'exerciseObject.metadata.disabled': {
       control: 'boolean',
+    },
+    'exerciseObject.metadata.showIndicator': {
+      control: 'boolean',
+      description: 'Show an indicator for the correct answer',
     },
     'exerciseObject.metadata.correctAnswers': {
       control: 'object',
@@ -152,6 +157,90 @@ export const Fifth: Story = {
         multi: true,
         showEvaluation: true,
       },
+    },
+    initialAnswer: {
+      answer: ['mc-item-1'],
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
+export const Sixth: Story = {
+  name: 'Show Results with initial answer: Checkbox Button MC',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      ...Template.args.exerciseObject,
+      metadata: {
+        ...Template.args.exerciseObject.metadata,
+        multi: true,
+        showIndicator: true,
+      },
+    },
+    initialAnswer: {
+      answer: ['mc-item-1'],
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
+export const Seventh: Story = {
+  name: 'Show indicator and evaluation with initial answer: Checkbox Button MC',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      ...Template.args.exerciseObject,
+      metadata: {
+        ...Template.args.exerciseObject.metadata,
+        multi: true,
+        showIndicator: true,
+        showEvaluation: true,
+      },
+      correctAnswers: ['mc-item-1', 'mc-item-2'],
+    },
+    initialAnswer: {
+      answer: ['mc-item-1'],
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
+
+export const Eighth: Story = {
+  name: 'Show indicator and evaluation with initial answer: Radio Button MC',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      ...Template.args.exerciseObject,
+      metadata: {
+        ...Template.args.exerciseObject.metadata,
+        multi: false,
+        showIndicator: true,
+        showEvaluation: true,
+      },
+      correctAnswers: ['mc-item-1', 'mc-item-2'],
+    },
+    initialAnswer: {
+      answer: ['mc-item-1'],
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
+export const Ninth: Story = {
+  name: 'Show indicator and evaluation with initial answer: Disable checkbox button MC',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      ...Template.args.exerciseObject,
+      metadata: {
+        ...Template.args.exerciseObject.metadata,
+        multi: true,
+        showIndicator: true,
+        disabled: true,
+        showEvaluation: true,
+      },
+      correctAnswers: ['mc-item-1', 'mc-item-2'],
     },
     initialAnswer: {
       answer: ['mc-item-1'],
