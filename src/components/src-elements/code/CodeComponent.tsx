@@ -88,6 +88,7 @@ export const adjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOp
     readOnly: false,
     overviewRulerLanes: 0,
     lineNumbers: 'on',
+    renderLineHighlightOnlyWhenFocus: true,
   };
 export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOptions =
   {
@@ -104,6 +105,7 @@ export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneEditorConstr
     overviewRulerLanes: 0,
     readOnly: true,
     lineNumbers: (_: number) => ' ',
+    renderLineHighlight: 'none',
   };
 
 CodeComponent.defaultProps = {
