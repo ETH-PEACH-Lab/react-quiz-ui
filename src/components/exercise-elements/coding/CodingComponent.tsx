@@ -9,17 +9,21 @@ import { type ICodingAnswer, type ICodingExercise } from './types';
 
 export const CodingComponent: React.FC<
   ExerciseProps<ICodingExercise, ICodingAnswer>
-> = (props: ExerciseProps<ICodingExercise, ICodingAnswer>) => {
-  const startingCode = props.exerciseObject.startingCode;
+> = ({
+  exerciseObject,
+  initialAnswer,
+  onAnswerChanges,
+}: ExerciseProps<ICodingExercise, ICodingAnswer>) => {
+  const startingCode = exerciseObject.startingCode;
   useEffect(() => {
-    props.onAnswerChanges({
-      ...props.initialAnswer,
+    onAnswerChanges({
+      ...initialAnswer,
       answer: {
-        ...props.initialAnswer.answer,
-        src: props.initialAnswer.answer.src,
+        ...initialAnswer.answer,
+        src: initialAnswer.answer.src,
       },
     });
-  }, [props.initialAnswer.answer.src]);
+  }, [initialAnswer.answer.src]);
   return (
     <>
       <div className="mt-4">
@@ -28,23 +32,23 @@ export const CodingComponent: React.FC<
             language={startingCode.language}
             src={startingCode.src}
             config={
-              props.exerciseObject.metadata?.startingCodeConfig ?? {
+              exerciseObject.metadata?.startingCodeConfig ?? {
                 options: readonlyAdjustableHeightCodeOptions,
               }
             }
           />
         )}
         <CodeComponent
-          language={props.initialAnswer.answer.language}
-          src={props.initialAnswer.answer.src}
+          language={initialAnswer.answer.language}
+          src={initialAnswer.answer.src}
           onCodeChange={(value) => {
-            props.onAnswerChanges({
-              ...props.initialAnswer,
-              answer: { ...props.initialAnswer.answer, src: value },
+            onAnswerChanges({
+              ...initialAnswer,
+              answer: { ...initialAnswer.answer, src: value },
             });
           }}
           config={
-            props.exerciseObject.metadata?.answerCodeConfig ?? {
+            exerciseObject.metadata?.answerCodeConfig ?? {
               options: adjustableHeightCodeOptions,
             }
           }></CodeComponent>

@@ -8,22 +8,23 @@ import { type IMultipleChoiceItem } from './item';
 
 export const MultipleChoiceComponent: React.FC<
   ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>
-> = (props: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
+> = ({
+  exerciseObject,
+  initialAnswer,
+  onAnswerChanges,
+}: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
   const internalId = useId();
-  const mc = props.exerciseObject;
+  const mc = exerciseObject;
   const [selectedItems, setItemsAnswers] = useState<string[]>(
-    props.initialAnswer?.answer ?? [],
+    initialAnswer?.answer ?? [],
   );
   useEffect(() => {
-    setItemsAnswers(props.initialAnswer?.answer ?? []);
-  }, [props.initialAnswer?.answer]);
+    setItemsAnswers(initialAnswer?.answer ?? []);
+  }, [initialAnswer?.answer]);
 
   const items = useMemo(() => {
     return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items;
-  }, [
-    props.exerciseObject.metadata?.random,
-    props.exerciseObject.items.length,
-  ]);
+  }, [exerciseObject.metadata?.random, exerciseObject.items.length]);
 
   const incorrectAnswers = useMemo(
     () =>
@@ -36,8 +37,8 @@ export const MultipleChoiceComponent: React.FC<
   );
 
   useEffect(() => {
-    props.onAnswerChanges({ ...props.initialAnswer, answer: selectedItems });
-  }, [selectedItems, props.onAnswerChanges]);
+    onAnswerChanges({ ...initialAnswer, answer: selectedItems });
+  }, [selectedItems, onAnswerChanges]);
 
   const onMultipleChoiceItemChange: (id: string, checked: boolean) => void = (
     id: string,
@@ -80,9 +81,4 @@ export const MultipleChoiceComponent: React.FC<
   ));
 
   return <>{itemComponents}</>;
-};
-MultipleChoiceComponent.defaultProps = {
-  initialAnswer: {
-    answer: [],
-  },
 };

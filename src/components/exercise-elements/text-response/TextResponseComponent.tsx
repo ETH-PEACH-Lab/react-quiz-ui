@@ -6,14 +6,18 @@ import { MarkdownComponent } from '../../src-elements';
 
 export const TextResponseComponent: React.FC<
   ExerciseProps<ITextResponseExercise, ITextResponseAnswer>
-> = (props: ExerciseProps<ITextResponseExercise, ITextResponseAnswer>) => {
-  const [answer, setAnswer] = useState(props.initialAnswer.answer);
+> = ({
+  exerciseObject,
+  initialAnswer,
+  onAnswerChanges,
+}: ExerciseProps<ITextResponseExercise, ITextResponseAnswer>) => {
+  const [answer, setAnswer] = useState(initialAnswer.answer);
   useEffect(() => {
-    setAnswer(props.initialAnswer.answer);
-  }, [props.initialAnswer.answer]);
+    setAnswer(initialAnswer.answer);
+  }, [initialAnswer.answer]);
   useEffect(() => {
-    props.onAnswerChanges({
-      ...props.initialAnswer,
+    onAnswerChanges({
+      ...initialAnswer,
       answer,
     });
   }, [answer]);
@@ -26,22 +30,21 @@ export const TextResponseComponent: React.FC<
             setAnswer({ ...answer, src: value });
           }}
           src={answer.src}
-          config={props.exerciseObject.metadata?.markdownEditorConfig}
+          config={exerciseObject.metadata?.markdownEditorConfig}
         />
       </div>
-      {props.exerciseObject.metadata?.showSolution &&
-        props.exerciseObject.solution && (
-          <div className="p-2 bg-base-200 mt-4">
-            <p className="text-xs">Solution:</p>
-            <MarkdownComponent
-              src={props.exerciseObject.solution}
-              className={
-                props.exerciseObject.metadata.markdownEditorConfig
-                  ?.solutionMarkdownClassName
-              }
-            />
-          </div>
-        )}
+      {exerciseObject.metadata?.showSolution && exerciseObject.solution && (
+        <div className="p-2 bg-base-200 mt-4">
+          <p className="text-xs">Solution:</p>
+          <MarkdownComponent
+            src={exerciseObject.solution}
+            className={
+              exerciseObject.metadata.markdownEditorConfig
+                ?.solutionMarkdownClassName
+            }
+          />
+        </div>
+      )}
     </>
   );
 };

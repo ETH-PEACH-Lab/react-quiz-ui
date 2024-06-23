@@ -12,63 +12,64 @@ interface MultipleChoiceItemComponentProps {
 }
 export const MultipleChoiceItemComponent: React.FC<
   MultipleChoiceItemComponentProps
-> = (props: MultipleChoiceItemComponentProps) => {
+> = ({
+  config,
+  item,
+  onChange,
+  parentId,
+}: MultipleChoiceItemComponentProps) => {
   return (
     <div className="form-control">
       <label className="cursor-pointer label">
-        <MarkdownComponent
-          {...props.item}
-          config={props.config.markdownConfig}
-        />
+        <MarkdownComponent {...item} config={config.markdownConfig} />
         <div className="flex space-x-4">
           <div className="ml-4 my-auto flex">
-            {props.config.multi && (
+            {config.multi && (
               <input
                 type="checkbox"
-                disabled={props.config.disabled}
+                disabled={config.disabled}
                 className={
                   'checkbox checkbox-sm ' +
-                  (props.config.showEvaluation
-                    ? !props.config.incorrect
-                      ? props.config.coloring?.colorCorrectCheckbox ??
+                  (config.showEvaluation
+                    ? !config.incorrect
+                      ? config.coloring?.colorCorrectCheckbox ??
                         'checked:checkbox-success'
-                      : props.config.coloring?.colorIncorrectCheckbox ??
+                      : config.coloring?.colorIncorrectCheckbox ??
                         'checkbox-error'
-                    : props.config.coloring?.colorSelectedCheckbox ?? '')
+                    : config.coloring?.colorSelectedCheckbox ?? '')
                 }
                 onChange={(event) => {
-                  props.onChange(props.item.id, event.target.checked);
+                  onChange(item.id, event.target.checked);
                 }}
-                defaultChecked={props.config.checked}
+                defaultChecked={config.checked}
               />
             )}
 
-            {!props.config.multi && (
+            {!config.multi && (
               <input
                 type="radio"
-                disabled={props.config.disabled}
-                name={props.parentId}
+                disabled={config.disabled}
+                name={parentId}
                 className={
                   'radio radio-sm ' +
-                  (props.config.showEvaluation
-                    ? !props.config.incorrect
-                      ? props.config.coloring?.colorCorrectRadio ??
+                  (config.showEvaluation
+                    ? !config.incorrect
+                      ? config.coloring?.colorCorrectRadio ??
                         'checked:radio-success'
-                      : props.config.coloring?.colorIncorrectRadio ??
-                        'radio-error'
-                    : props.config.coloring?.colorSelectedCheckbox ?? '')
+                      : config.coloring?.colorIncorrectRadio ?? 'radio-error'
+                    : config.coloring?.colorSelectedCheckbox ?? '')
                 }
                 onChange={(event) => {
-                  props.onChange(props.item.id, event.target.checked);
+                  onChange(item.id, event.target.checked);
                 }}
-                checked={props.config.checked}
+                checked={config.checked}
               />
             )}
           </div>
-          {props.config?.showIndicator && (
+          {config?.showIndicator && (
             <MultipleChoiceResultIndicatorComponent
               correct={
-                !props.config.incorrect
+                !config.incorrect
               }></MultipleChoiceResultIndicatorComponent>
           )}
         </div>

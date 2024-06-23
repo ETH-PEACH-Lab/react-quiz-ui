@@ -4,9 +4,9 @@ import { CodeComponent, MarkdownComponent } from '../../../src-elements';
 
 export const MarkdownEditorJupyterComponent: React.FC<
   MarkdownEditorComponentProps
-> = (props: MarkdownEditorComponentProps) => {
-  const [editing, setEditing] = useState(!props.src.trim().length);
-  const actions = props.config?.codeConfig?.actions ?? [];
+> = ({ src, config, onChange }: MarkdownEditorComponentProps) => {
+  const [editing, setEditing] = useState(!src.trim().length);
+  const actions = config?.codeConfig?.actions ?? [];
 
   const blockContext =
     'editorTextFocus && !suggestWidgetVisible && !renameInputVisible && !inSnippetMode ' +
@@ -14,9 +14,9 @@ export const MarkdownEditorJupyterComponent: React.FC<
   const code = (
     <CodeComponent
       language="markdown"
-      src={props.src}
+      src={src}
       config={{
-        ...props.config?.codeConfig,
+        ...config?.codeConfig,
         actions: [
           ...actions,
           {
@@ -33,13 +33,13 @@ export const MarkdownEditorJupyterComponent: React.FC<
           },
         ],
       }}
-      onCodeChange={props.onChange}
+      onCodeChange={onChange}
       focused={editing}></CodeComponent>
   );
   const markdown = (
     <MarkdownComponent
-      src={props.src}
-      config={props.config?.markdownConfig}></MarkdownComponent>
+      src={src}
+      config={config?.markdownConfig}></MarkdownComponent>
   );
   return !editing ? (
     <div
