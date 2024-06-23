@@ -5,8 +5,8 @@ interface MultipleChoiceResultIndicatorComponentProps {
 }
 export const MultipleChoiceResultIndicatorComponent: React.FC<
   MultipleChoiceResultIndicatorComponentProps
-> = (props: MultipleChoiceResultIndicatorComponentProps) => {
-  return props.correct ? (
+> = ({ correct }: MultipleChoiceResultIndicatorComponentProps) => {
+  return correct ? (
     <span className="text-success">✓</span>
   ) : (
     <span className="text-error">✗</span>

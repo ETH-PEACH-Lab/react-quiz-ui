@@ -11,24 +11,33 @@ export interface MarkdownEditorComponentProps {
   config?: IMarkdownEditorConfig;
   onChange: (value: string) => void;
 }
-export const MarkdownEditorComponent: React.FC<MarkdownEditorComponentProps> = (
-  props: MarkdownEditorComponentProps,
-) => {
-  if (props.config?.tabs) {
-    return <MarkdownEditorTabComponent {...props}></MarkdownEditorTabComponent>;
+export const MarkdownEditorComponent: React.FC<
+  MarkdownEditorComponentProps
+> = ({
+  src,
+  config = { alignVertical: true },
+  onChange,
+}: MarkdownEditorComponentProps) => {
+  if (config?.tabs) {
+    return (
+      <MarkdownEditorTabComponent
+        onChange={onChange}
+        src={src}
+        config={config}></MarkdownEditorTabComponent>
+    );
   }
-  if (props.config?.jupyter) {
+  if (config?.jupyter) {
     return (
       <MarkdownEditorJupyterComponent
-        {...props}></MarkdownEditorJupyterComponent>
+        onChange={onChange}
+        src={src}
+        config={config}></MarkdownEditorJupyterComponent>
     );
   }
   return (
-    <MarkdownEditorDefaultComponent {...props}></MarkdownEditorDefaultComponent>
+    <MarkdownEditorDefaultComponent
+      onChange={onChange}
+      src={src}
+      config={config}></MarkdownEditorDefaultComponent>
   );
-};
-MarkdownEditorComponent.defaultProps = {
-  config: {
-    alignVertical: false,
-  },
 };

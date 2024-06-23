@@ -4,26 +4,24 @@ import { type MarkdownEditorComponentProps } from '../MarkdownEditorComponent';
 
 export const MarkdownEditorDefaultComponent: React.FC<
   MarkdownEditorComponentProps
-> = (props: MarkdownEditorComponentProps) => {
+> = ({ src, config, onChange }: MarkdownEditorComponentProps) => {
   const code = (
     <CodeComponent
       language="markdown"
-      src={props.src}
-      config={props.config?.codeConfig}
-      onCodeChange={props.onChange}></CodeComponent>
+      src={src}
+      config={config?.codeConfig}
+      onCodeChange={onChange}></CodeComponent>
   );
   const markdown = (
     <MarkdownComponent
-      src={props.src}
-      config={props.config?.markdownConfig}></MarkdownComponent>
+      src={src}
+      config={config?.markdownConfig}></MarkdownComponent>
   );
   return (
     <div
-      className={
-        'grid gap-4 ' + (props.config?.alignVertical ? '' : 'grid-cols-2')
-      }>
-      {props.config?.alignVertical ? markdown : code}
-      {props.config?.alignVertical ? code : markdown}
+      className={'grid gap-4 ' + (config?.alignVertical ? '' : 'grid-cols-2')}>
+      {config?.alignVertical ? markdown : code}
+      {config?.alignVertical ? code : markdown}
     </div>
   );
 };

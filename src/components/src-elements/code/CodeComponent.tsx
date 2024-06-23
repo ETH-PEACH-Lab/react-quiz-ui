@@ -10,31 +10,40 @@ interface CodeComponentProps {
   focused?: boolean;
   config?: ICodeConfig;
 }
-export const CodeComponent: React.FC<CodeComponentProps> = (
-  props: CodeComponentProps,
-) => {
-  const onCodeChange: (value: string | undefined) => void = (
+export const CodeComponent: React.FC<CodeComponentProps> = ({
+  src,
+  language,
+  onCodeChange,
+  focused,
+  config = {
+    fullHeight: false,
+    options: adjustableHeightCodeOptions,
+    theme: 'light',
+    actions: [],
+  },
+}: CodeComponentProps) => {
+  const onChange: (value: string | undefined) => void = (
     value: string | undefined,
   ) => {
-    if (props.onCodeChange) {
-      props.onCodeChange(value ?? '');
+    if (onCodeChange) {
+      onCodeChange(value ?? '');
     }
   };
   const onEditorMount: (editor: editor.IStandaloneCodeEditor) => void = (
     editor: editor.IStandaloneCodeEditor,
   ) => {
-    if (!props.config?.fullHeight) {
+    if (!config?.fullHeight) {
       editor.onDidContentSizeChange(() => {
         updateEditorHeight(editor);
       });
       updateEditorHeight(editor);
     }
-    if (props.config?.actions) {
-      props.config.actions.forEach((action) => {
+    if (config?.actions) {
+      config.actions.forEach((action) => {
         editor.addAction(action);
       });
     }
-    if (props.focused) {
+    if (focused) {
       editor.focus();
     }
   };
@@ -61,12 +70,12 @@ export const CodeComponent: React.FC<CodeComponentProps> = (
   return (
     <div className="grid grid-cols-1">
       <Editor
-        height={props.config?.fullHeight ? '100%' : 'auto'}
-        options={props.config?.options ?? adjustableHeightCodeOptions}
-        theme={props.config?.theme}
-        value={props.src}
-        language={props.language}
-        onChange={onCodeChange}
+        height={config?.fullHeight ? '100%' : 'auto'}
+        options={config?.options ?? adjustableHeightCodeOptions}
+        theme={config?.theme}
+        value={src}
+        language={language}
+        onChange={onChange}
         onMount={onEditorMount}
       />
     </div>
@@ -107,12 +116,3 @@ export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneEditorConstr
     lineNumbers: (_: number) => ' ',
     renderLineHighlight: 'none',
   };
-
-CodeComponent.defaultProps = {
-  config: {
-    fullHeight: false,
-    options: adjustableHeightCodeOptions,
-    theme: 'light',
-    actions: [],
-  },
-};

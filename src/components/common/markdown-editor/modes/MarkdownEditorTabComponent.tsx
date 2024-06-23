@@ -3,20 +3,20 @@ import { CodeComponent, MarkdownComponent } from '../../../src-elements';
 import { type MarkdownEditorComponentProps } from '../MarkdownEditorComponent';
 export const MarkdownEditorTabComponent: React.FC<
   MarkdownEditorComponentProps
-> = (props: MarkdownEditorComponentProps) => {
+> = ({ src, config, onChange }: MarkdownEditorComponentProps) => {
   const [activeTab, setActiveTab] = useState('code');
   const id = useId();
   const code = (
     <CodeComponent
       language="markdown"
-      src={props.src}
-      config={props.config?.codeConfig}
-      onCodeChange={props.onChange}></CodeComponent>
+      src={src}
+      config={config?.codeConfig}
+      onCodeChange={onChange}></CodeComponent>
   );
   const markdown = (
     <MarkdownComponent
-      src={props.src}
-      config={props.config?.markdownConfig}></MarkdownComponent>
+      src={src}
+      config={config?.markdownConfig}></MarkdownComponent>
   );
   return (
     <div role="tablist" className="tabs tabs-bordered">

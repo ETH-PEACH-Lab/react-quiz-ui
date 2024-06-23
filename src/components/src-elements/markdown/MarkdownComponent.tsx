@@ -7,15 +7,17 @@ interface MarkdownComponentProps {
   src: string;
   className?: string;
 }
-export const MarkdownComponent: React.FC<MarkdownComponentProps> = (
-  props: MarkdownComponentProps,
-) => {
+export const MarkdownComponent: React.FC<MarkdownComponentProps> = ({
+  config,
+  src,
+  className,
+}: MarkdownComponentProps) => {
   return (
     <Markdown
-      remarkPlugins={props.config?.remarkPlugins ?? []}
-      rehypePlugins={props.config?.rehypePlugins ?? []}
-      className={'whitespace-pre-wrap ' + props.className}>
-      {props.src}
+      remarkPlugins={config?.remarkPlugins ?? []}
+      rehypePlugins={config?.rehypePlugins ?? []}
+      className={'whitespace-pre-wrap ' + className}>
+      {src}
     </Markdown>
   );
 };
