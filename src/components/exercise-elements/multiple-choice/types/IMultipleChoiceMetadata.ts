@@ -7,6 +7,10 @@ export interface IMultipleChoiceMetadata {
   multi?: boolean;
   random?: boolean;
   disabled?: boolean;
+  distribution?: {
+    show?: boolean;
+    perItem: number[];
+  };
   markdownConfig?: IMarkdownConfig;
   multipleChoiceItemColoring?: IMultipleChoiceItemColoring;
 }

@@ -1,3 +1,4 @@
+export * from './distribution';
 export * from './item';
 export * from './MultipleChoiceComponent';
 export * from './result-indicator';

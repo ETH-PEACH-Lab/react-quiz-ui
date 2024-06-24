@@ -3,6 +3,7 @@ import { MarkdownComponent } from '../../../src-elements';
 import { type IMultipleChoiceItemConfig } from './types/IMultipleChoiceItemConfig';
 import { type IMultipleChoiceItem } from './types';
 import { MultipleChoiceResultIndicatorComponent } from '../result-indicator';
+import { MultipleChoiceItemDistribution } from '../distribution/MultipleChoiceItemDistribution';
 
 interface MultipleChoiceItemComponentProps {
   item: IMultipleChoiceItem;
@@ -74,6 +75,13 @@ export const MultipleChoiceItemComponent: React.FC<
           )}
         </div>
       </label>
+      {config?.distribution?.show && (
+        <MultipleChoiceItemDistribution
+          correct={!config.incorrect}
+          distribution={
+            config.distribution.number
+          }></MultipleChoiceItemDistribution>
+      )}
     </div>
   );
 };

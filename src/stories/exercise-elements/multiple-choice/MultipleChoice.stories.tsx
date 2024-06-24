@@ -249,3 +249,29 @@ export const Ninth: Story = {
   argTypes: Template.argTypes,
   render: Template.render,
 };
+export const Tenth: Story = {
+  name: 'Show distribution and evaluation with initial answer: Disable checkbox button MC',
+  args: {
+    ...Template.args,
+    exerciseObject: {
+      ...Template.args.exerciseObject,
+      metadata: {
+        ...Template.args.exerciseObject.metadata,
+        multi: true,
+        showIndicator: true,
+        disabled: true,
+        showEvaluation: true,
+        distribution: {
+          show: true,
+          perItem: [10, 35, 55],
+        },
+      },
+      correctAnswers: ['mc-item-1', 'mc-item-2'],
+    },
+    initialAnswer: {
+      answer: ['mc-item-1'],
+    },
+  },
+  argTypes: Template.argTypes,
+  render: Template.render,
+};
