@@ -93,13 +93,33 @@ export const Forth: Story = {
   ...Template,
 };
 export const Fifth: Story = {
-  name: 'Checked incorrect checkbox Button',
+  name: 'Checked correct checkbox Button',
   args: {
     config: {
       multi: true,
       checked: true,
       incorrect: false,
       showEvaluation: true,
+    },
+
+    descriptionText: 'Multiple Choice Item',
+    parentId: 'mcq-id',
+    onChange: fn(),
+  },
+  ...Template,
+};
+export const Sixth: Story = {
+  name: 'Show Distribution',
+  args: {
+    config: {
+      multi: true,
+      checked: true,
+      incorrect: false,
+      showEvaluation: true,
+      distribution: {
+        show: true,
+        number: 100,
+      },
     },
 
     descriptionText: 'Multiple Choice Item',

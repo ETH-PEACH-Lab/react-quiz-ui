@@ -61,7 +61,7 @@ export const MultipleChoiceComponent: React.FC<
     return mc.correctAnswers.length > 0 && incorrectAnswers.includes(item.id);
   };
 
-  const itemComponents = items.map((item) => (
+  const itemComponents = items.map((item, index) => (
     <MultipleChoiceItemComponent
       onChange={onMultipleChoiceItemChange}
       key={internalId + '_' + item.id}
@@ -76,6 +76,10 @@ export const MultipleChoiceComponent: React.FC<
         coloring: mc.metadata?.multipleChoiceItemColoring,
         showEvaluation: mc.metadata?.showEvaluation,
         showIndicator: mc.metadata?.showIndicator,
+        distribution: {
+          show: mc.metadata?.distribution?.show,
+          number: mc.metadata?.distribution?.perItem[index] ?? 0,
+        },
       }}
     />
   ));
