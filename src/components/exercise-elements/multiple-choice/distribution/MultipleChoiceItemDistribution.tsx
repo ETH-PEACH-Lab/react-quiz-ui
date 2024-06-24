@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MultipleChoiceItemDistributionProps {
-  correct: boolean;
+  correct?: boolean;
   distribution: number;
 }
 export const MultipleChoiceItemDistribution: React.FC<
