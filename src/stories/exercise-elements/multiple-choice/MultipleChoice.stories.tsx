@@ -218,7 +218,7 @@ export const Eighth: Story = {
         showIndicator: true,
         showEvaluation: true,
       },
-      correctAnswers: ['mc-item-1', 'mc-item-2'],
+      correctAnswers: ['mc-item-1'],
     },
     initialAnswer: {
       answer: ['mc-item-1'],

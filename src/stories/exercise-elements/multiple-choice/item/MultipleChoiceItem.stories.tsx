@@ -41,7 +41,7 @@ export const First: Story = {
     config: {
       multi: false,
       showEvaluation: false,
-      incorrect: false,
+      incorrectSelection: false,
     },
     descriptionText: 'Multiple Choice Item',
     parentId: 'mcq-id',
@@ -82,7 +82,7 @@ export const Forth: Story = {
     config: {
       multi: true,
       checked: true,
-      incorrect: true,
+      incorrectSelection: true,
       showEvaluation: true,
     },
 
@@ -98,7 +98,7 @@ export const Fifth: Story = {
     config: {
       multi: true,
       checked: true,
-      incorrect: false,
+      incorrectSelection: false,
       showEvaluation: true,
     },
 
@@ -114,7 +114,7 @@ export const Sixth: Story = {
     config: {
       multi: true,
       checked: true,
-      incorrect: false,
+      incorrectSelection: false,
       showEvaluation: true,
       distribution: {
         show: true,

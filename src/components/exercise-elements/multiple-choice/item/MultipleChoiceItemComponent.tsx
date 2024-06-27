@@ -32,7 +32,7 @@ export const MultipleChoiceItemComponent: React.FC<
                 className={
                   'checkbox checkbox-sm ' +
                   (config.showEvaluation
-                    ? !config.incorrect
+                    ? !config.incorrectSelection
                       ? config.coloring?.colorCorrectCheckbox ??
                         'checked:checkbox-success'
                       : config.coloring?.colorIncorrectCheckbox ??
@@ -54,7 +54,7 @@ export const MultipleChoiceItemComponent: React.FC<
                 className={
                   'radio radio-sm ' +
                   (config.showEvaluation
-                    ? !config.incorrect
+                    ? !config.incorrectSelection
                       ? config.coloring?.colorCorrectRadio ??
                         'checked:radio-success'
                       : config.coloring?.colorIncorrectRadio ?? 'radio-error'
@@ -69,15 +69,13 @@ export const MultipleChoiceItemComponent: React.FC<
           </div>
           {config?.showIndicator && (
             <MultipleChoiceResultIndicatorComponent
-              correct={
-                !config.incorrect
-              }></MultipleChoiceResultIndicatorComponent>
+              correct={config.valid}></MultipleChoiceResultIndicatorComponent>
           )}
         </div>
       </label>
       {config?.distribution?.show && (
         <MultipleChoiceItemDistribution
-          correct={!config.incorrect}
+          correct={config.valid}
           distribution={
             config.distribution.number
           }></MultipleChoiceItemDistribution>

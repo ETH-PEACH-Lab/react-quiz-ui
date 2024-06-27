@@ -69,7 +69,7 @@ export const MultipleChoiceComponent: React.FC<
       item={item}
       config={{
         multi: mc.metadata?.multi,
-        incorrect: isIncorrect(item),
+        incorrectSelection: isIncorrect(item),
         disabled: mc.metadata?.disabled,
         checked: selectedItems.includes(item.id),
         markdownConfig: mc.metadata?.markdownConfig,
@@ -80,6 +80,7 @@ export const MultipleChoiceComponent: React.FC<
           show: mc.metadata?.distribution?.show,
           number: mc.metadata?.distribution?.perItem[index] ?? 0,
         },
+        valid: mc.correctAnswers.includes(item.id),
       }}
     />
   ));
