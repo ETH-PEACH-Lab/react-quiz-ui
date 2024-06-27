@@ -9,7 +9,8 @@ export interface IMultipleChoiceItemConfig {
     number: number;
   };
   multi?: boolean;
-  incorrect?: boolean;
+  valid?: boolean;
+  incorrectSelection?: boolean;
   disabled?: boolean;
   checked?: boolean;
   markdownConfig?: IMarkdownConfig;

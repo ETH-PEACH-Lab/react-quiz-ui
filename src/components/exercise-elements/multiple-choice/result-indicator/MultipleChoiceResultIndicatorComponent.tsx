@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface MultipleChoiceResultIndicatorComponentProps {
-  correct: boolean;
+  correct?: boolean;
 }
 export const MultipleChoiceResultIndicatorComponent: React.FC<
   MultipleChoiceResultIndicatorComponentProps
