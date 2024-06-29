@@ -54,3 +54,25 @@ export const Third: Story = {
     },
   },
 };
+export const Forth: Story = {
+  name: 'Original: multiline + modified: none',
+  args: {
+    original: 'Hello' + '\nWorld\n' + '...',
+    modified: '',
+    language: 'text',
+    config: {
+      options: adjustableHeightCodeOptions,
+    },
+  },
+};
+export const Fifth: Story = {
+  name: 'Original: none + modified: Multiline',
+  args: {
+    modified: 'Hello' + '\nWorld\n' + '...',
+    original: '',
+    language: 'text',
+    config: {
+      options: adjustableHeightCodeOptions,
+    },
+  },
+};
