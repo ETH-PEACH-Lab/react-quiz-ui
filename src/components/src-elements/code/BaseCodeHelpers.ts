@@ -47,7 +47,10 @@ export const updateDiffCodeEditorHeight: (
     editor.getModel()?.original.getLineCount() ?? 1,
   );
   const height =
-    editor.getModifiedEditor().getTopForLineNumber(lineCount + 1) + lineHeight;
+    Math.max(
+      editor.getOriginalEditor().getTopForLineNumber(lineCount + 1),
+      editor.getModifiedEditor().getTopForLineNumber(lineCount + 1),
+    ) + lineHeight;
   editorElement.style.height = `${height}px`;
   editorElement.style.width = '100%';
   editor.layout({
