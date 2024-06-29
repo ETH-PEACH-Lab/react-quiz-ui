@@ -2,7 +2,7 @@ import { type Meta } from '@storybook/react';
 import {
   CodeComponent,
   adjustableHeightCodeOptions,
-} from '../../../../components/src-elements/code/CodeComponent';
+} from '../../../../components/src-elements/code';
 import { type DeepStoryObj } from '../../../StoryObj';
 import { fn } from '@storybook/test';
 /**
