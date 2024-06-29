@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { type ExerciseProps } from '../types';
+import { CodeComponent } from '../../src-elements/code/CodeComponent';
+import { type ICodingAnswer, type ICodingExercise } from './types';
 import {
-  CodeComponent,
   adjustableHeightCodeOptions,
   readonlyAdjustableHeightCodeOptions,
-} from '../../src-elements/code/CodeComponent';
-import { type ICodingAnswer, type ICodingExercise } from './types';
+} from '../../src-elements';
 
 export const CodingComponent: React.FC<
   ExerciseProps<ICodingExercise, ICodingAnswer>
