@@ -56,37 +56,39 @@ export const updateDiffCodeEditorHeight: (
   });
 };
 
-export const adjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOptions =
-  {
-    quickSuggestions: {
-      other: 'inline',
-      comments: true,
-      strings: true,
-    },
-    cursorBlinking: 'smooth',
-    wrappingStrategy: 'advanced',
-    wordWrap: 'on',
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    readOnly: false,
-    overviewRulerLanes: 0,
-    lineNumbers: 'on',
-    renderLineHighlightOnlyWhenFocus: true,
-  };
-export const readonlyAdjustableHeightCodeOptions: editor.IStandaloneEditorConstructionOptions =
-  {
-    quickSuggestions: {
-      other: 'inline',
-      comments: true,
-      strings: true,
-    },
-    cursorBlinking: 'smooth',
-    wrappingStrategy: 'advanced',
-    wordWrap: 'on',
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    overviewRulerLanes: 0,
-    readOnly: true,
-    lineNumbers: (_: number) => ' ',
-    renderLineHighlight: 'none',
-  };
+export const adjustableHeightCodeOptions:
+  | editor.IStandaloneEditorConstructionOptions
+  | editor.IStandaloneDiffEditorConstructionOptions = {
+  quickSuggestions: {
+    other: 'inline',
+    comments: true,
+    strings: true,
+  },
+  cursorBlinking: 'smooth',
+  wrappingStrategy: 'advanced',
+  wordWrap: 'on',
+  minimap: { enabled: false },
+  scrollBeyondLastLine: false,
+  readOnly: false,
+  overviewRulerLanes: 0,
+  lineNumbers: 'on',
+  renderLineHighlightOnlyWhenFocus: true,
+};
+export const readonlyAdjustableHeightCodeOptions:
+  | editor.IStandaloneEditorConstructionOptions
+  | editor.IStandaloneDiffEditorConstructionOptions = {
+  quickSuggestions: {
+    other: 'inline',
+    comments: true,
+    strings: true,
+  },
+  cursorBlinking: 'smooth',
+  wrappingStrategy: 'advanced',
+  wordWrap: 'on',
+  minimap: { enabled: false },
+  scrollBeyondLastLine: false,
+  overviewRulerLanes: 0,
+  readOnly: true,
+  lineNumbers: (_: number) => ' ',
+  renderLineHighlight: 'none',
+};
