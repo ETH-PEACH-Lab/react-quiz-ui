@@ -53,7 +53,11 @@ export const updateDiffCodeEditorHeight: (
     ) + lineHeight;
   editorElement.style.height = `${height}px`;
   editorElement.style.width = '100%';
-  editor.layout({
+  editor.getOriginalEditor().layout({
+    width: editorElement.getBoundingClientRect().width,
+    height,
+  });
+  editor.getModifiedEditor().layout({
     width: editorElement.getBoundingClientRect().width,
     height,
   });
