@@ -1,4 +1,4 @@
-import { DiffEditor } from '@monaco-editor/react';
+import { DiffEditor, type Monaco } from '@monaco-editor/react';
 import React from 'react';
 import { type ICodeConfig } from './types';
 import {
@@ -14,6 +14,8 @@ interface DiffCodeComponentProps {
   language: string;
   focused?: boolean;
   config?: ICodeConfig;
+  onMount?: (editor: editor.IStandaloneDiffEditor) => void;
+  beforeMount?: (monaco: Monaco) => void;
 }
 export const DiffCodeComponent: React.FC<DiffCodeComponentProps> = ({
   original,
@@ -25,19 +27,21 @@ export const DiffCodeComponent: React.FC<DiffCodeComponentProps> = ({
     options: adjustableHeightCodeOptions,
     theme: 'light',
   },
+  onMount,
+  beforeMount,
 }: DiffCodeComponentProps) => {
   const onComponentEditorMount: (
     editor: editor.IStandaloneDiffEditor,
   ) => void = (editor: editor.IStandaloneDiffEditor) => {
     onEditorMount(editor, focused);
     editor.getOriginalEditor().onDidContentSizeChange(() => {
-      console.log('content size change');
       updateDiffCodeEditorHeight(editor);
     });
     editor.getModifiedEditor().onDidContentSizeChange(() => {
       updateDiffCodeEditorHeight(editor);
     });
     updateDiffCodeEditorHeight(editor);
+    onMount && onMount(editor);
   };
   return (
     <div className="grid grid-cols-1">
@@ -49,6 +53,7 @@ export const DiffCodeComponent: React.FC<DiffCodeComponentProps> = ({
         modified={modified}
         language={language}
         onMount={onComponentEditorMount}
+        beforeMount={beforeMount}
       />
     </div>
   );
