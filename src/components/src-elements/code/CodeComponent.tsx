@@ -1,4 +1,4 @@
-import { Editor } from '@monaco-editor/react';
+import { Editor, type Monaco } from '@monaco-editor/react';
 import { type editor } from 'monaco-editor';
 import React from 'react';
 import { type IExtendedCodeConfig } from './types/IExtendedCodeConfig';
@@ -14,6 +14,8 @@ interface CodeComponentProps {
   onCodeChange?: (value: string) => void;
   focused?: boolean;
   config?: IExtendedCodeConfig;
+  onMount?: (editor: editor.IStandaloneCodeEditor) => void;
+  beforeMount?: (monaco: Monaco) => void;
 }
 export const CodeComponent: React.FC<CodeComponentProps> = ({
   src,
@@ -26,6 +28,8 @@ export const CodeComponent: React.FC<CodeComponentProps> = ({
     theme: 'light',
     actions: [],
   },
+  onMount,
+  beforeMount,
 }: CodeComponentProps) => {
   const onChange: (value: string | undefined) => void = (
     value: string | undefined,
@@ -48,6 +52,7 @@ export const CodeComponent: React.FC<CodeComponentProps> = ({
         editor.addAction(action);
       });
     }
+    onMount && onMount(editor);
   };
   return (
     <div className="grid grid-cols-1">
@@ -59,6 +64,7 @@ export const CodeComponent: React.FC<CodeComponentProps> = ({
         language={language}
         onChange={onChange}
         onMount={onComponentEditorMount}
+        beforeMount={beforeMount}
       />
     </div>
   );
