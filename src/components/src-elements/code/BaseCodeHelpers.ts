@@ -54,11 +54,17 @@ export const updateDiffCodeEditorHeight: (
   editorElement.style.height = `${height}px`;
   editorElement.style.width = '100%';
   editor.getOriginalEditor().layout({
-    width: editorElement.getBoundingClientRect().width,
+    width: editor
+      .getOriginalEditor()
+      .getContainerDomNode()
+      .getBoundingClientRect().width,
     height,
   });
   editor.getModifiedEditor().layout({
-    width: editorElement.getBoundingClientRect().width,
+    width: editor
+      .getModifiedEditor()
+      .getContainerDomNode()
+      .getBoundingClientRect().width,
     height,
   });
 };
