@@ -14,6 +14,9 @@ export const MultipleChoiceComponent: React.FC<
   onAnswerChanges,
 }: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
   const internalId = useId();
+  const [items, setItems] = useState<IMultipleChoiceItem[]>(
+    exerciseObject.items,
+  );
   const mc = exerciseObject;
   const [selectedItems, setItemsAnswers] = useState<string[]>(
     initialAnswer?.answer ?? [],
@@ -22,9 +25,13 @@ export const MultipleChoiceComponent: React.FC<
     setItemsAnswers(initialAnswer?.answer ?? []);
   }, [initialAnswer?.answer]);
 
-  const items = useMemo(() => {
-    return mc.metadata?.random ? useArrayShuffle(mc.items) : mc.items;
-  }, [exerciseObject.metadata?.random, exerciseObject.items]);
+  useEffect(() => {
+    setItems(
+      exerciseObject.metadata?.random
+        ? useArrayShuffle(exerciseObject.items)
+        : exerciseObject.items,
+    );
+  }, [exerciseObject.items, exerciseObject.metadata?.random]);
 
   const incorrectAnswers = useMemo(
     () =>
