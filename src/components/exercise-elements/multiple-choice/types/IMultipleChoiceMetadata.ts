@@ -9,7 +9,7 @@ export interface IMultipleChoiceMetadata {
   disabled?: boolean;
   distribution?: {
     show?: boolean;
-    perItem: number[];
+    perItem: Record<string, number>;
   };
   markdownConfig?: IMarkdownConfig;
   multipleChoiceItemColoring?: IMultipleChoiceItemColoring;
