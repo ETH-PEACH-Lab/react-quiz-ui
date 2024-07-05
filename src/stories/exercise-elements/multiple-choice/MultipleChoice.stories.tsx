@@ -263,7 +263,7 @@ export const Tenth: Story = {
         showEvaluation: true,
         distribution: {
           show: true,
-          perItem: [10, 35, 55],
+          perItem: { 'mc-item-1': 15, 'mc-item-2': 35, 'mc-item-3': 55 },
         },
       },
       correctAnswers: ['mc-item-1', 'mc-item-2'],
