@@ -31,7 +31,7 @@ export const MultipleChoiceComponent: React.FC<
         ? useArrayShuffle(exerciseObject.items)
         : exerciseObject.items,
     );
-  }, [exerciseObject.items, exerciseObject.metadata?.random]);
+  }, [exerciseObject.items.length, exerciseObject.metadata?.random]);
 
   const incorrectAnswers = useMemo(
     () =>
