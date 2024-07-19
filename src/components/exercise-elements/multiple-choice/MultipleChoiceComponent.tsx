@@ -14,7 +14,7 @@ export const MultipleChoiceComponent: React.FC<
   onAnswerChanges,
 }: ExerciseProps<IMultipleChoiceExercise, IMultipleChoiceAnswer>) => {
   const internalId = useId();
-  const [items, setItems] = useState<IMultipleChoiceItem[]>(
+  const [shuffledItems, setShuffledItems] = useState<IMultipleChoiceItem[]>(
     exerciseObject.items,
   );
   const mc = exerciseObject;
@@ -26,7 +26,7 @@ export const MultipleChoiceComponent: React.FC<
   }, [initialAnswer?.answer]);
 
   useEffect(() => {
-    setItems(
+    setShuffledItems(
       exerciseObject.metadata?.random
         ? useArrayShuffle(exerciseObject.items)
         : exerciseObject.items,
@@ -68,29 +68,31 @@ export const MultipleChoiceComponent: React.FC<
     return mc.correctAnswers.length > 0 && incorrectAnswers.includes(item.id);
   };
 
-  const itemComponents = items.map((item) => (
-    <MultipleChoiceItemComponent
-      onChange={onMultipleChoiceItemChange}
-      key={internalId + '_' + item.id}
-      parentId={internalId}
-      item={item}
-      config={{
-        multi: mc.metadata?.multi,
-        incorrectSelection: isIncorrect(item),
-        disabled: mc.metadata?.disabled,
-        checked: selectedItems.includes(item.id),
-        markdownConfig: mc.metadata?.markdownConfig,
-        coloring: mc.metadata?.multipleChoiceItemColoring,
-        showEvaluation: mc.metadata?.showEvaluation,
-        showIndicator: mc.metadata?.showIndicator,
-        distribution: {
-          show: mc.metadata?.distribution?.show,
-          number: mc.metadata?.distribution?.perItem[item.id] ?? 0,
-        },
-        valid: mc.correctAnswers.includes(item.id),
-      }}
-    />
-  ));
+  const itemComponents = (mc.metadata?.random ? shuffledItems : mc.items).map(
+    (item) => (
+      <MultipleChoiceItemComponent
+        onChange={onMultipleChoiceItemChange}
+        key={internalId + '_' + item.id}
+        parentId={internalId}
+        item={item}
+        config={{
+          multi: mc.metadata?.multi,
+          incorrectSelection: isIncorrect(item),
+          disabled: mc.metadata?.disabled,
+          checked: selectedItems.includes(item.id),
+          markdownConfig: mc.metadata?.markdownConfig,
+          coloring: mc.metadata?.multipleChoiceItemColoring,
+          showEvaluation: mc.metadata?.showEvaluation,
+          showIndicator: mc.metadata?.showIndicator,
+          distribution: {
+            show: mc.metadata?.distribution?.show,
+            number: mc.metadata?.distribution?.perItem[item.id] ?? 0,
+          },
+          valid: mc.correctAnswers.includes(item.id),
+        }}
+      />
+    ),
+  );
 
   return <>{itemComponents}</>;
 };
