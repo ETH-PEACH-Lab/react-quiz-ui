@@ -86,6 +86,9 @@ export const adjustableHeightCodeOptions:
   overviewRulerLanes: 0,
   lineNumbers: 'on',
   renderLineHighlightOnlyWhenFocus: true,
+  scrollbar: {
+    alwaysConsumeMouseWheel: false,
+  },
 };
 export const readonlyAdjustableHeightCodeOptions:
   | editor.IStandaloneEditorConstructionOptions
@@ -104,4 +107,7 @@ export const readonlyAdjustableHeightCodeOptions:
   readOnly: true,
   lineNumbers: (_: number) => ' ',
   renderLineHighlight: 'none',
+  scrollbar: {
+    alwaysConsumeMouseWheel: false,
+  },
 };
