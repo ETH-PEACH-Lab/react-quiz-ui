@@ -9,15 +9,17 @@ import {
 } from './BaseCodeHelpers';
 
 interface CodeComponentProps {
+  referenceId?: string;
   src: string;
   language: string;
-  onCodeChange?: (value: string) => void;
+  onCodeChange?: (value: string, referenceId?: string) => void;
   focused?: boolean;
   config?: IExtendedCodeConfig;
   onMount?: (editor: editor.IStandaloneCodeEditor) => void;
   beforeMount?: (monaco: Monaco) => void;
 }
 export const CodeComponent: React.FC<CodeComponentProps> = ({
+  referenceId,
   src,
   language,
   onCodeChange,
@@ -35,7 +37,7 @@ export const CodeComponent: React.FC<CodeComponentProps> = ({
     value: string | undefined,
   ) => {
     if (onCodeChange) {
-      onCodeChange(value ?? '');
+      onCodeChange(value ?? '', referenceId);
     }
   };
   const onComponentEditorMount: (
