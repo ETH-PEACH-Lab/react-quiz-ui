@@ -1,12 +1,23 @@
 import { type editor } from 'monaco-editor';
 
-export const onEditorMount: (
-  editor: editor.ICodeEditor | editor.IDiffEditor,
+export const onCodeEditorMount: (
+  editor: editor.ICodeEditor,
   focused?: boolean,
-) => void = (
-  editor: editor.ICodeEditor | editor.IDiffEditor,
+) => void = (editor: editor.ICodeEditor, focused?: boolean) => {
+  const model = editor.getModel();
+  if (model !== null) {
+    const lineCount = model.getLineCount();
+    const lastLineLength = model.getLineMaxColumn(lineCount);
+    editor.setPosition({ lineNumber: lineCount, column: lastLineLength });
+  }
+  if (focused) {
+    editor.focus();
+  }
+};
+export const onDiffEditorMount: (
+  editor: editor.IDiffEditor,
   focused?: boolean,
-) => {
+) => void = (editor: editor.IDiffEditor, focused?: boolean) => {
   if (focused) {
     editor.focus();
   }

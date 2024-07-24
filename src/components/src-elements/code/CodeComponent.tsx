@@ -4,7 +4,7 @@ import React from 'react';
 import { type IExtendedCodeConfig } from './types/IExtendedCodeConfig';
 import {
   adjustableHeightCodeOptions,
-  onEditorMount,
+  onCodeEditorMount,
   updateCodeEditorHeight,
 } from './BaseCodeHelpers';
 
@@ -43,7 +43,7 @@ export const CodeComponent: React.FC<CodeComponentProps> = ({
   const onComponentEditorMount: (
     editor: editor.IStandaloneCodeEditor,
   ) => void = (editor: editor.IStandaloneCodeEditor) => {
-    onEditorMount(editor, focused);
+    onCodeEditorMount(editor, focused);
     editor.onDidContentSizeChange(() => {
       updateCodeEditorHeight(editor);
     });

@@ -3,7 +3,7 @@ import React from 'react';
 import { type ICodeConfig } from './types';
 import {
   adjustableHeightCodeOptions,
-  onEditorMount,
+  onDiffEditorMount,
   updateDiffCodeEditorHeight,
 } from './BaseCodeHelpers';
 import { type editor } from 'monaco-editor';
@@ -33,7 +33,7 @@ export const DiffCodeComponent: React.FC<DiffCodeComponentProps> = ({
   const onComponentEditorMount: (
     editor: editor.IStandaloneDiffEditor,
   ) => void = (editor: editor.IStandaloneDiffEditor) => {
-    onEditorMount(editor, focused);
+    onDiffEditorMount(editor, focused);
     editor.getOriginalEditor().onDidContentSizeChange(() => {
       updateDiffCodeEditorHeight(editor);
     });
